@@ -8,13 +8,7 @@
     "check-types": "tsc --pretty --noEmit",
     "check-format": "prettier --check .",
     "format": "prettier --write .",
-    "test-all": "yarn check-format && yarn lint && yarn check-types",
-    "prepare": "husky install"
-  },
-  "husky":{
-    "hooks":{
-      "pre-commit": "cd .husky && cd _ && bash husky.sh"
-    }
+    "test-all": "yarn check-format && yarn lint && yarn check-types"
   },
   "dependencies": {
     "next": "latest",
@@ -29,7 +23,6 @@
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5",
     "eslint-config-prettier": "^8.5.0",
-    "husky": "^8.0.1",
     "pinst": "^3.0.0",
     "postcss": "^8.4.14",
     "prettier": "2.7.1",
