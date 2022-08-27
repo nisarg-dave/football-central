@@ -11,6 +11,11 @@
     "test-all": "yarn check-format && yarn lint && yarn check-types",
     "prepare": "husky install"
   },
+  "husky":{
+    "hooks":{
+      "pre-commit": "cd .husky && cd _ && bash husky.sh"
+    }
+  },
   "dependencies": {
     "next": "latest",
     "react": "18.1.0",
