@@ -1,15 +1,20 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Navbar from "../components/navigation/Navbar";
+import Sidebar from "../components/navigation/Sidebar";
 
 const Home: NextPage = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="">
       <Head>
-        <title>Create Next App</title>
+        <title>Football Central</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main></main>
+      <main>
+        <Navbar />
+        <Sidebar />
+      </main>
     </div>
   );
 };
