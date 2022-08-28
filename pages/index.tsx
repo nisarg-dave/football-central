@@ -1,20 +1,16 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Navbar from "../components/navigation/Navbar";
-import Sidebar from "../components/navigation/Sidebar";
+import Default from "../layouts/Default";
 
 const Home: NextPage = () => {
   return (
     <div className="">
-      <Head>
-        <title>Football Central</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <Navbar />
-        <Sidebar />
-      </main>
+      <Default>
+        <Head>
+          <title>Football Central</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+      </Default>
     </div>
   );
 };
