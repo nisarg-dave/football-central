@@ -2,8 +2,15 @@ import React from "react";
 import Default from "../../layouts/Default";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 import Image from "next/image";
+import type { GetServerSideProps } from "next";
+import { leagueTable } from "../../typings";
+import WidgetLeagueTable from "../../components/widgets/WidgetLeagueTable";
 
-function index() {
+interface laLigaStandings {
+  standings: leagueTable[];
+}
+
+function index({ standings }: laLigaStandings) {
   return (
     <Default>
       <div className="flex flex-col bg-yellow-200 h-screen">
@@ -17,7 +24,9 @@ function index() {
         </div>
         <div className="flex"> Embala Carousel Fixtures</div>
         <div className="grid grid-cols-8">
-          <div className="col-span-2">Hello</div>
+          <div className="col-span-2">
+            <WidgetLeagueTable standings={standings} />
+          </div>
           <div className="col-span-4">Hello</div>
           <div className="col-span-2">
             <TwitterTimelineEmbed
@@ -33,3 +42,15 @@ function index() {
 }
 
 export default index;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const response = await fetch(
+    `${process.env.BASE_URL}/api/football/laLiga/getStandings`
+  );
+  const standings = await response.json();
+  return {
+    props: {
+      standings,
+    },
+  };
+};
