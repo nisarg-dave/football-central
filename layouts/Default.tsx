@@ -7,17 +7,13 @@ interface DefaultProps {
 }
 
 function Default({ children }: DefaultProps) {
-  const [showSide, setShowSide] = useState(false);
-
-  const showSideBar = () => {
-    setShowSide(!showSide);
-  };
-
   return (
     <div>
-      <Navbar handleClick={showSideBar} />
-      {showSide ? <Sidebar /> : <></>}
-      <main>{children}</main>
+      <Navbar />
+      <div className="flex flex-row">
+        <Sidebar />
+        <main className="w-screen">{children}</main>
+      </div>
     </div>
   );
 }

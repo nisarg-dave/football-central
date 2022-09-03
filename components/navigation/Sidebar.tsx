@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import { useRouter } from "next/router";
 
 function Sidebar() {
   const [premDropDown, setPremDropDown] = useState(false);
   const [laLigaDropDown, setLaLigaDropDown] = useState(false);
   const [transferDropDown, setTransferDropDown] = useState(false);
+  const router = useRouter();
 
   return (
     <div className="w-48 h-screen border-r-2 border-black bg-black text-yellow-300 flex flex-col ">
@@ -36,7 +38,12 @@ function Sidebar() {
         </div>
         {laLigaDropDown ? (
           <div className="cursor-pointer text-sm">
-            <p className="pl-2 hover:bg-slate-300">Home</p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => router.push("/laLiga")}
+            >
+              Home
+            </p>
             <p className="pl-2 hover:bg-slate-300">Standings</p>
             <p className="pl-2 hover:bg-slate-300">Fixtures</p>
             <p className="pl-2 hover:bg-slate-300">FCBKs Blog</p>
