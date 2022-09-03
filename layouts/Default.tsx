@@ -8,7 +8,7 @@ interface DefaultProps {
 
 function Default({ children }: DefaultProps) {
   return (
-    <div>
+    <div className="">
       <Navbar />
       <div className="flex flex-row">
         <Sidebar />
