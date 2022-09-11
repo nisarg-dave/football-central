@@ -23,12 +23,12 @@ function index({ standings }: laLigaStandings) {
           <h1 className="ml-2 text-xl font-bold mt-4">La Liga</h1>
         </div>
         <div className="flex flex-row-reverse"> Embala Carousel Fixtures</div>
-        <div className="flex flex-row">
-          <div className="p-2">
+        <div className="grid grid-cols-10">
+          <div className="p-2 col-span-2">
             <WidgetLeagueTable standings={standings} />
           </div>
-          <div className=""></div>
-          <div className="w-60">
+          <div className="col-span-5"></div>
+          <div className="w-60 col-span-2 ml-9">
             <TwitterTimelineEmbed
               sourceType="profile"
               screenName="LaLigaEN"
