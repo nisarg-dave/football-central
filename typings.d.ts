@@ -1,4 +1,4 @@
-export type leagueTable = {
+export interface leagueTable {
   position: number;
   clubLogo: string;
   clubName: string;
@@ -10,4 +10,15 @@ export type leagueTable = {
   goalsAgainst: number;
   goalsDifference: number;
   points: number;
-};
+}
+
+export interface fixtures {
+  id: number;
+  date: string;
+  location: string;
+  status: string;
+  homeTeamLogo: string;
+  homeTeamGoals: string;
+  awayTeamLogo: string;
+  awayTeamGoals: string;
+}

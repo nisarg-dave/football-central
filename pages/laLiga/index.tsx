@@ -3,14 +3,16 @@ import Default from "../../layouts/Default";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 import Image from "next/image";
 import type { GetServerSideProps } from "next";
-import { leagueTable } from "../../typings";
+import { leagueTable, fixtures } from "../../typings";
 import WidgetLeagueTable from "../../components/widgets/WidgetLeagueTable";
+import WidgetFixtureCard from "../../components/widgets/WidgetFixtureCard";
 
-interface laLigaStandings {
+interface laLigaProps {
   standings: leagueTable[];
+  fixtures: fixtures[];
 }
 
-function index({ standings }: laLigaStandings) {
+function Index({ standings, fixtures }: laLigaProps) {
   return (
     <Default>
       <div className="flex flex-col w-full">
@@ -20,10 +22,14 @@ function index({ standings }: laLigaStandings) {
             src="https://pbs.twimg.com/profile_images/1269059076597694470/YUsGePSz_400x400.jpg"
             alt="La Liga Logo"
           />
-          <h1 className="ml-2 text-xl font-bold mt-4">La Liga</h1>
+          <h1 className="ml-2 text-lg font-bold mt-4">La Liga</h1>
         </div>
-        <div className="flex flex-row-reverse"> Embala Carousel Fixtures</div>
-        <div className="grid grid-cols-10">
+        <div className="flex pt-2 ml-3">
+          {fixtures.map((fixture) => (
+            <WidgetFixtureCard key={fixture.id} fixture={fixture} />
+          ))}
+        </div>
+        <div className="grid grid-cols-10 mt-1">
           <div className="p-2 col-span-2">
             <WidgetLeagueTable standings={standings} />
           </div>
@@ -32,7 +38,7 @@ function index({ standings }: laLigaStandings) {
             <TwitterTimelineEmbed
               sourceType="profile"
               screenName="LaLigaEN"
-              options={{ height: 570 }}
+              options={{ height: 550 }}
             />
           </div>
         </div>
@@ -41,16 +47,21 @@ function index({ standings }: laLigaStandings) {
   );
 }
 
-export default index;
+export default Index;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const response = await fetch(
+  const standingsResponse = await fetch(
     `${process.env.BASE_URL}/api/football/laLiga/getStandings`
   );
-  const standings = await response.json();
+  const standings = await standingsResponse.json();
+  const fixturesResponse = await fetch(
+    `${process.env.BASE_URL}/api/football/laLiga/getFixtures`
+  );
+  const fixtures = await fixturesResponse.json();
   return {
     props: {
       standings,
+      fixtures,
     },
   };
 };
