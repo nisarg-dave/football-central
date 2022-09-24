@@ -15,30 +15,30 @@ interface laLigaProps {
 function Index({ standings, fixtures }: laLigaProps) {
   return (
     <Default>
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col">
         <div className="flex ml-2">
           <img
-            className="w-14 h-14 rounded-full mt-1"
+            className="w-32 h-32 rounded-full mt-1"
             src="https://pbs.twimg.com/profile_images/1269059076597694470/YUsGePSz_400x400.jpg"
             alt="La Liga Logo"
           />
-          <h1 className="ml-2 text-lg font-bold mt-4">La Liga</h1>
+          <h1 className="ml-4 text-4xl font-bold mt-12">La Liga</h1>
         </div>
-        <div className="flex pt-2 ml-3">
+        <div className="flex mt-3 ml-6">
           {fixtures.map((fixture) => (
             <WidgetFixtureCard key={fixture.id} fixture={fixture} />
           ))}
         </div>
-        <div className="grid grid-cols-10 mt-1">
+        <div className="grid grid-cols-7 mt-1">
           <div className="p-2 col-span-2">
             <WidgetLeagueTable standings={standings} />
           </div>
-          <div className="col-span-5"></div>
-          <div className="w-60 col-span-2 ml-9">
+          <div className="col-span-3"></div>
+          <div className="w-96 col-span-2 ml-16">
             <TwitterTimelineEmbed
               sourceType="profile"
               screenName="LaLigaEN"
-              options={{ height: 550 }}
+              options={{ height: 820 }}
             />
           </div>
         </div>

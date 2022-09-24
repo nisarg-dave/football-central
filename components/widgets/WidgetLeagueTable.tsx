@@ -7,11 +7,11 @@ interface WidgetLeagueTableProps {
 
 function WidgetLeagueTable({ standings }: WidgetLeagueTableProps) {
   return (
-    <table className="table-auto bg-slate-300 w-full">
+    <table className="bg-slate-300 w-full h-full">
       <thead>
         <tr>
-          <th>Team</th>
-          <th>Points</th>
+          <th className="text-xl">Team</th>
+          <th className="text-xl">Points</th>
         </tr>
       </thead>
       <tbody>
@@ -19,14 +19,16 @@ function WidgetLeagueTable({ standings }: WidgetLeagueTableProps) {
           <>
             <tr key={standing.position}>
               <td className="text-center flex justify-center">
-                <p className="text-bold">{standing.position}.</p>
+                <p className="text-bold text-xl">{standing.position}.</p>
                 <img
                   src={standing.clubLogo}
-                  className="h-6 w-6 ml-2 rounded-full"
+                  className="h-7 w-7 ml-2 rounded-full"
                 />
               </td>
               <td>
-                <p className="text-bold text-center">{standing.points}</p>
+                <p className="text-bold text-center text-xl">
+                  {standing.points}
+                </p>
               </td>
             </tr>
           </>

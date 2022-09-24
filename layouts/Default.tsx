@@ -8,7 +8,7 @@ interface DefaultProps {
 
 function Default({ children }: DefaultProps) {
   return (
-    <div className="bg-yellow-200">
+    <div className="bg-yellow-200 w-screen">
       <Navbar />
       <div className="flex flex-row">
         <Sidebar />
