@@ -13,7 +13,7 @@ export default async function handler(
   res: NextApiResponse<fixtures[]>
 ) {
   const response = await fetch(
-    `${process.env.SPORTS_BASE_URL}` + `${laLigaRequets.fetchFixtures}`,
+    `${process.env.SPORTS_BASE_URL}` + `${laLigaRequets.fetchResults}`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +24,7 @@ export default async function handler(
   );
 
   const data = await response.json();
-  const fixturesArr = data.response.map((obj: any) => {
+  const resultsArr = data.response.map((obj: any) => {
     const id = obj?.fixture?.id;
     const date = dateTimeConvert(obj?.fixture?.date);
     const location = obj?.fixture?.venue?.name;
@@ -44,5 +44,5 @@ export default async function handler(
       awayTeamGoals,
     };
   });
-  res.status(200).json(fixturesArr);
+  res.status(200).json(resultsArr);
 }

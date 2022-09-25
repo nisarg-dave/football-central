@@ -50,7 +50,12 @@ function Sidebar() {
             >
               Standings
             </p>
-            <p className="pl-2 hover:bg-slate-300">Results</p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => router.push("/laLiga/results")}
+            >
+              Results
+            </p>
             <p className="pl-2 hover:bg-slate-300">FCBKs Blog</p>
           </div>
         ) : (
