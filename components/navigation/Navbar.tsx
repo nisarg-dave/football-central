@@ -1,20 +1,19 @@
 import React from "react";
-import { Bars3Icon } from "@heroicons/react/24/solid";
+import { useRouter } from "next/router";
 
-interface NavBarProps {
-  handleClick: () => void;
-}
-
-function Navbar({ handleClick }: NavBarProps) {
+function Navbar() {
+  const router = useRouter();
   return (
-    <div className="grid grid-cols-3 border-b-2 bg-black border-black py-1.5 text-yellow-300">
-      <Bars3Icon
-        className="h-10 w-15 ml-5 cursor-pointer hover:bg-yellow-300 hover:text-black rounded-full px-2 py-2"
-        onClick={handleClick}
-      />
-      <h1 className="font-bold text-2xl pt-1 cols-span-2 text-center">
-        Football Central
-      </h1>
+    <div className="border-b-2 bg-black border-black py-1.5 text-yellow-300 grid grid-cols-3 w-full h-20">
+      <div className="col-span-1">
+        <img
+          className="h-30 w-16 ml-3 rounded-full cursor-pointer"
+          src="https://freesvg.org/img/soccer_ball2.png"
+          alt="Football Logo"
+          onClick={() => router.push("/")}
+        />
+      </div>
+      <h1 className="font-bold text-5xl pt-2 text-center">Football Central</h1>
     </div>
   );
 }
