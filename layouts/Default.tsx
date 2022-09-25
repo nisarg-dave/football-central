@@ -8,11 +8,11 @@ interface DefaultProps {
 
 function Default({ children }: DefaultProps) {
   return (
-    <div className="bg-yellow-200 w-screen">
+    <div className="">
       <Navbar />
       <div className="flex flex-row">
         <Sidebar />
-        <main>{children}</main>
+        <main className="w-screen bg-yellow-200">{children}</main>
       </div>
     </div>
   );

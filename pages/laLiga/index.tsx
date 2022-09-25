@@ -12,10 +12,10 @@ interface laLigaProps {
   fixtures: fixtures[];
 }
 
-function Index({ standings, fixtures }: laLigaProps) {
+function index({ standings, fixtures }: laLigaProps) {
   return (
     <Default>
-      <div className="flex flex-col">
+      <div className="flex flex-col bg-yellow-200">
         <div className="flex ml-2">
           <img
             className="w-32 h-32 rounded-full mt-1"
@@ -47,7 +47,7 @@ function Index({ standings, fixtures }: laLigaProps) {
   );
 }
 
-export default Index;
+export default index;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const standingsResponse = await fetch(
