@@ -4,7 +4,7 @@ import Default from "../layouts/Default";
 
 const Home: NextPage = () => {
   return (
-    <div className="">
+    <div className="bg-yellow-200">
       <Default>
         <Head>
           <title>Football Central</title>
