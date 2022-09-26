@@ -5,6 +5,9 @@ import { useRouter } from "next/router";
 function Sidebar() {
   const [premDropDown, setPremDropDown] = useState(false);
   const [laLigaDropDown, setLaLigaDropDown] = useState(false);
+  const [serieADropDown, setSerieADropDown] = useState(false);
+  const [ligueUnDropDown, setLigueUnDropDown] = useState(false);
+  const [bundesligaDropDown, setBundesligaDropDown] = useState(false);
   const [transferDropDown, setTransferDropDown] = useState(false);
   const router = useRouter();
 
@@ -20,9 +23,24 @@ function Sidebar() {
         </div>
         {premDropDown ? (
           <div className="cursor-pointer text-2xl">
-            <p className="pl-2 hover:bg-slate-300">Home</p>
-            <p className="pl-2 hover:bg-slate-300">Standings</p>
-            <p className="pl-2 hover:bg-slate-300">Results</p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => router.push("/premierLeague")}
+            >
+              Home
+            </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => router.push("/premierLeague/standings")}
+            >
+              Standings
+            </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => router.push("/premierLeague/results")}
+            >
+              Results
+            </p>
           </div>
         ) : (
           <></>
@@ -57,6 +75,60 @@ function Sidebar() {
               Results
             </p>
             <p className="pl-2 hover:bg-slate-300">FCBKs Blog</p>
+          </div>
+        ) : (
+          <></>
+        )}
+      </div>
+      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-3xl">
+        <div className="flex justify-between">
+          Serie A
+          <ChevronDownIcon
+            className="h-10 w-10 rounded-full px-2 py-2 cursor-pointer hover:bg-black hover:text-yellow-300"
+            onClick={() => setSerieADropDown(!serieADropDown)}
+          />
+        </div>
+        {serieADropDown ? (
+          <div className="cursor-pointer text-2xl">
+            <p className="pl-2 hover:bg-slate-300">Home</p>
+            <p className="pl-2 hover:bg-slate-300">Standings</p>
+            <p className="pl-2 hover:bg-slate-300">Results</p>
+          </div>
+        ) : (
+          <></>
+        )}
+      </div>
+      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-3xl">
+        <div className="flex justify-between">
+          Ligue Un
+          <ChevronDownIcon
+            className="h-10 w-10 rounded-full px-2 py-2 cursor-pointer hover:bg-black hover:text-yellow-300"
+            onClick={() => setLigueUnDropDown(!ligueUnDropDown)}
+          />
+        </div>
+        {ligueUnDropDown ? (
+          <div className="cursor-pointer text-2xl">
+            <p className="pl-2 hover:bg-slate-300">Home</p>
+            <p className="pl-2 hover:bg-slate-300">Standings</p>
+            <p className="pl-2 hover:bg-slate-300">Results</p>
+          </div>
+        ) : (
+          <></>
+        )}
+      </div>
+      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-3xl">
+        <div className="flex justify-between">
+          Bundesliga
+          <ChevronDownIcon
+            className="h-10 w-10 rounded-full px-2 py-2 cursor-pointer hover:bg-black hover:text-yellow-300"
+            onClick={() => setBundesligaDropDown(!bundesligaDropDown)}
+          />
+        </div>
+        {bundesligaDropDown ? (
+          <div className="cursor-pointer text-2xl">
+            <p className="pl-2 hover:bg-slate-300">Home</p>
+            <p className="pl-2 hover:bg-slate-300">Standings</p>
+            <p className="pl-2 hover:bg-slate-300">Results</p>
           </div>
         ) : (
           <></>
