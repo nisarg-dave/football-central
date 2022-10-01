@@ -198,7 +198,7 @@ function Sidebar() {
             </p>
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/championsLeague/results")}
+              onClick={() => router.push("/championsLea/results")}
             >
               Results
             </p>
@@ -217,7 +217,12 @@ function Sidebar() {
         </div>
         {transferDropDown ? (
           <div className="cursor-pointer text-2xl">
-            <p className="pl-2 hover:bg-slate-300">Home</p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => router.push("/transferNews")}
+            >
+              Home
+            </p>
           </div>
         ) : (
           <></>
