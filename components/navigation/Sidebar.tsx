@@ -8,6 +8,7 @@ function Sidebar() {
   const [serieADropDown, setSerieADropDown] = useState(false);
   const [ligueUnDropDown, setLigueUnDropDown] = useState(false);
   const [bundesligaDropDown, setBundesligaDropDown] = useState(false);
+  const [championsLeagueDropDown, setChampionsLeagueDropDown] = useState(false);
   const [transferDropDown, setTransferDropDown] = useState(false);
   const router = useRouter();
 
@@ -90,9 +91,24 @@ function Sidebar() {
         </div>
         {serieADropDown ? (
           <div className="cursor-pointer text-2xl">
-            <p className="pl-2 hover:bg-slate-300">Home</p>
-            <p className="pl-2 hover:bg-slate-300">Standings</p>
-            <p className="pl-2 hover:bg-slate-300">Results</p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => router.push("/serieA")}
+            >
+              Home
+            </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => router.push("/serieA/standings")}
+            >
+              Standings
+            </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => router.push("/serieA/results")}
+            >
+              Results
+            </p>
           </div>
         ) : (
           <></>
@@ -108,9 +124,24 @@ function Sidebar() {
         </div>
         {ligueUnDropDown ? (
           <div className="cursor-pointer text-2xl">
-            <p className="pl-2 hover:bg-slate-300">Home</p>
-            <p className="pl-2 hover:bg-slate-300">Standings</p>
-            <p className="pl-2 hover:bg-slate-300">Results</p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => router.push("/ligueUn")}
+            >
+              Home
+            </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => router.push("/ligueUn/standings")}
+            >
+              Standings
+            </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => router.push("/ligueUn/results")}
+            >
+              Results
+            </p>
           </div>
         ) : (
           <></>
@@ -126,9 +157,51 @@ function Sidebar() {
         </div>
         {bundesligaDropDown ? (
           <div className="cursor-pointer text-2xl">
-            <p className="pl-2 hover:bg-slate-300">Home</p>
-            <p className="pl-2 hover:bg-slate-300">Standings</p>
-            <p className="pl-2 hover:bg-slate-300">Results</p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => router.push("/bundesliga")}
+            >
+              Home
+            </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => router.push("/bundesliga/standings")}
+            >
+              Standings
+            </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => router.push("/bundesliga/results")}
+            >
+              Results
+            </p>
+          </div>
+        ) : (
+          <></>
+        )}
+      </div>
+      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-3xl">
+        <div className="flex justify-between">
+          Champions League
+          <ChevronDownIcon
+            className="h-10 w-10 rounded-full px-2 py-2 cursor-pointer hover:bg-black hover:text-yellow-300"
+            onClick={() => setChampionsLeagueDropDown(!championsLeagueDropDown)}
+          />
+        </div>
+        {championsLeagueDropDown ? (
+          <div className="cursor-pointer text-2xl">
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => router.push("/championsLeague")}
+            >
+              Home
+            </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => router.push("/championsLeague/results")}
+            >
+              Results
+            </p>
           </div>
         ) : (
           <></>
