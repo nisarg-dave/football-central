@@ -14,7 +14,7 @@ export default async function handler(
 ) {
   const response = await fetch(
     `${process.env.SPORTS_BASE_URL}` +
-      `${footballRequests.laLigaRequests.fetchResults}`,
+      `${footballRequests.ligueUnRequests.fetchFixtures}`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -25,7 +25,7 @@ export default async function handler(
   );
 
   const data = await response.json();
-  const resultsArr = data.response.map((obj: any) => {
+  const fixturesArr = data.response.map((obj: any) => {
     const id = obj?.fixture?.id;
     const date = dateTimeConvert(obj?.fixture?.date);
     const location = obj?.fixture?.venue?.name;
@@ -45,5 +45,5 @@ export default async function handler(
       awayTeamGoals,
     };
   });
-  res.status(200).json(resultsArr);
+  res.status(200).json(fixturesArr);
 }
