@@ -1,14 +1,15 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import laLigaRequets from "../../../../utils/laLigaRequests";
 import { leagueTable } from "../../../../typings";
+import footballRequests from "../../../../utils/footballRequests";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<leagueTable[]>
 ) {
   const response = await fetch(
-    `${process.env.SPORTS_BASE_URL}` + `${laLigaRequets.fetchStandings}`,
+    `${process.env.SPORTS_BASE_URL}` +
+      `${footballRequests.laLigaRequests.fetchStandings}`,
     {
       headers: {
         "Content-Type": "application/json",

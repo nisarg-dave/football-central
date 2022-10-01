@@ -9,7 +9,7 @@ export default async function handler(
 ) {
   const response = await fetch(
     `${process.env.SPORTS_BASE_URL}` +
-      `${footballRequests.premierLeagueRequests.fetchStandings}`,
+      `${footballRequests.serieARequests.fetchStandings}`,
     {
       headers: {
         "Content-Type": "application/json",
