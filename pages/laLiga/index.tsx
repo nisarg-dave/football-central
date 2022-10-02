@@ -3,16 +3,22 @@ import Default from "../../layouts/Default";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 import Image from "next/image";
 import type { GetServerSideProps } from "next";
-import { leagueTable, fixtures } from "../../typings";
+import { leagueTable, fixtures, articles } from "../../typings";
 import WidgetLeagueTable from "../../components/widgets/WidgetLeagueTable";
 import WidgetFixtureCard from "../../components/widgets/WidgetFixtureCard";
 
 interface laLigaProps {
   standings: leagueTable[];
   fixtures: fixtures[];
+  articles: articles[];
 }
 
-function index({ standings, fixtures }: laLigaProps) {
+function index({ standings, fixtures, articles }: laLigaProps) {
+  const truncate = (string, n) => {
+    string = string.body[0].children[0].text;
+    // String might not be there hence ?
+    return string?.length > n ? string.substr(0, n - 1) + "..." : string;
+  };
   return (
     <Default>
       <div className="flex flex-col bg-yellow-200">
@@ -33,7 +39,15 @@ function index({ standings, fixtures }: laLigaProps) {
           <div className="p-2 col-span-2">
             <WidgetLeagueTable standings={standings} />
           </div>
-          <div className="col-span-3"></div>
+          <div className="col-span-3 pl-5">
+            {articles.map((article) => (
+              <div key={article._id}>
+                <img src={article.mainImage} className="w-full" />
+                <h1 className="font-bold text-2xl">{article.title}</h1>
+                <p>{truncate(article, 150)})</p>
+              </div>
+            ))}
+          </div>
           <div className="w-96 col-span-2 ml-16">
             <TwitterTimelineEmbed
               sourceType="profile"
@@ -58,10 +72,15 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     `${process.env.BASE_URL}/api/football/laLiga/getFixtures`
   );
   const fixtures = await fixturesResponse.json();
+  const articlesResponse = await fetch(
+    `${process.env.BASE_URL}/api/articles/getArticles`
+  );
+  const articles = await articlesResponse.json();
   return {
     props: {
       standings,
       fixtures,
+      articles,
     },
   };
 };

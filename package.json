@@ -12,8 +12,11 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.8",
+    "@portabletext/react": "^1.0.6",
+    "@sanity/image-url": "^1.0.1",
     "@types/react-slick": "^0.23.10",
     "next": "latest",
+    "next-sanity": "^0.8.4",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-slick": "^0.29.0",
