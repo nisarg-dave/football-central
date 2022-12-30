@@ -13,7 +13,7 @@ function Sidebar() {
   const router = useRouter();
 
   return (
-    <div className="w-80 h-screen border-r-2 border-black bg-black text-yellow-300 flex flex-col flex-none">
+    <div className="w-80 border-black bg-black text-yellow-300 flex flex-col flex-none">
       <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-3xl">
         <div className="flex justify-between">
           Premier League

@@ -4,14 +4,12 @@ import Default from "../layouts/Default";
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-yellow-200">
-      <Default>
-        <Head>
-          <title>Football Central</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-      </Default>
-    </div>
+    <Default>
+      <Head>
+        <title>Football Central</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+    </Default>
   );
 };
 
