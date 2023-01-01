@@ -1,18 +1,17 @@
 import React from "react";
 import Default from "../../layouts/Default";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
-import Image from "next/image";
 import type { GetServerSideProps } from "next";
 import { leagueTable, fixtures } from "../../typings";
 import WidgetLeagueTable from "../../components/widgets/WidgetLeagueTable";
 import WidgetFixtureCard from "../../components/widgets/WidgetFixtureCard";
 
-interface laLigaProps {
+interface leagueProps {
   standings: leagueTable[];
   fixtures: fixtures[];
 }
 
-function index({ standings, fixtures }: laLigaProps) {
+function index({ standings, fixtures }: leagueProps) {
   return (
     <Default>
       <div className="flex flex-col">
@@ -37,14 +36,14 @@ function index({ standings, fixtures }: laLigaProps) {
             <TwitterTimelineEmbed
               sourceType="profile"
               screenName="SkySportsPL"
-              options={{ height: 820 }}
+              options={{ height: 670 }}
             />
           </div>
           <div className="w-72 col-span-1 p-2">
             <TwitterTimelineEmbed
               sourceType="profile"
               screenName="premierleague"
-              options={{ height: 820 }}
+              options={{ height: 670 }}
             />
           </div>
         </div>

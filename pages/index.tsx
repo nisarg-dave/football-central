@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Default from "../layouts/Default";
 import { useRouter } from "next/router";
-import { userAgent } from "next/server";
 
 const Home: NextPage = () => {
   const router = useRouter();

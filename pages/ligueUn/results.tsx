@@ -15,11 +15,11 @@ function results({ results }: resultsProps) {
         <div className="flex flex-col">
           <div className="flex ml-2">
             <img
-              className="w-32 h-32 rounded-full mt-1"
+              className="w-20 h-20 rounded-full mt-1"
               src="https://pbs.twimg.com/profile_images/1531926859604271104/MAUCnkLp_400x400.jpg"
               alt="Ligue Un Logo"
             />
-            <h1 className="ml-4 text-4xl font-bold mt-12">Results</h1>
+            <h1 className="ml-4 text-2xl font-bold mt-7">Results</h1>
           </div>
           <div className="grid grid-cols-3 p-4 gap-4">
             {results.map((result) => (
