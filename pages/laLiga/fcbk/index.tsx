@@ -5,7 +5,7 @@ function index() {
   return (
     <Default>
       <div className="flex justify-center items-center h-screen">
-        <h1 className="text-2xl font-bold mt-12">FCBK's Blog Coming Soon...</h1>
+        <h1 className="text-2xl font-bold mt-12">FCBKs Blog Coming Soon...</h1>
       </div>
     </Default>
   );
