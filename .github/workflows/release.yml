@@ -1,0 +1,29 @@
+on:
+  pull_request:
+    branches:
+      - main
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
+
+name: Create Release
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: v0.1.0
+          release_name: v0.1.0
+          body: |
+            First release. Includes pages for the following leagues: Bundesliga, Champions League, La Liga, Ligue Un, Premier League and Serie A. Transfer News and FCBK's Blog still to come.
+          draft: false
+          prerelease: false

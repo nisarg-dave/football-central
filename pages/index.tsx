@@ -1,86 +1,69 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import type { NextPage } from "next";
+import Head from "next/head";
+import Default from "../layouts/Default";
+import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
+  const router = useRouter();
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <Default>
       <Head>
-        <title>Create Next App</title>
+        <title>Football Central</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <section></section>
+      <div className="grid grid-cols-3 p-4 gap-4 ">
+        <img
+          className="w-64 h-64 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
+          src="https://pbs.twimg.com/profile_images/1572138661025570816/6mbw4KEQ_400x400.jpg"
+          alt="Premier League Logo"
+          onClick={() => router.push("/premierLeague")}
+        />
+        <img
+          className="w-64 h-64 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
+          src="https://pbs.twimg.com/profile_images/1269059076597694470/YUsGePSz_400x400.jpg"
+          alt="La Liga Logo"
+          onClick={() => router.push("/laLiga")}
+        />
+        <img
+          className="w-64 h-64 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
+          src="https://pbs.twimg.com/profile_images/1540266057084112902/0KsmkG2O_400x400.jpg"
+          alt="Serie A Logo"
+          onClick={() => router.push("/serieA")}
+        />
+        <img
+          className="w-64 h-64 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
+          src="https://pbs.twimg.com/profile_images/1531926859604271104/MAUCnkLp_400x400.jpg"
+          alt="Ligue Un Logo"
+          onClick={() => router.push("/ligueUn")}
+        />
+        <img
+          className="w-64 h-64 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
+          src="https://pbs.twimg.com/profile_images/1500628606988558343/MLN0_jMP_400x400.jpg"
+          alt="Bundesliga Logo"
+          onClick={() => router.push("/bundesliga")}
+        />
+        <img
+          className="w-64 h-64 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
+          src="https://pbs.twimg.com/profile_images/1417052605776375813/Jc9RL5o7_400x400.jpg"
+          alt="Champions League Logo"
+          onClick={() => router.push("/championsLeague")}
+        />
+        <img
+          className="w-64 h-64 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
+          src="https://c4.wallpaperflare.com/wallpaper/639/159/622/soccer-fc-barcelona-logo-wallpaper-preview.jpg"
+          alt="FCBK Logo"
+          onClick={() => router.push("/laLiga/fcbk")}
+        />
+        <img
+          className="w-64 h-64 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
+          src="https://about.twitter.com/content/dam/about-twitter/en/brand-toolkit/brand-download-img-1.jpg.twimg.1920.jpg"
+          alt="Transfer Logo"
+          onClick={() => router.push("/transferNews")}
+        />
+      </div>
+    </Default>
+  );
+};
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
-
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and its API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
-      </footer>
-    </div>
-  )
-}
-
-export default Home
+export default Home;
