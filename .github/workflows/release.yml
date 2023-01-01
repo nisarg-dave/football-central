@@ -1,8 +1,7 @@
 name: Releases
 on:
   pull_request:
-    types:
-      - opened
+    types: ["opened", "reponened", "edited"]
     branches:
       - "main"
 
