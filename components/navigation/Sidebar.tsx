@@ -13,17 +13,17 @@ function Sidebar() {
   const router = useRouter();
 
   return (
-    <div className="w-80 h-screen border-r-2 border-black bg-black text-yellow-300 flex flex-col flex-none">
-      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-3xl">
+    <div className="w-60 border-black bg-black text-yellow-300 flex flex-col flex-none">
+      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-xl">
         <div className="flex justify-between">
           Premier League
           <ChevronDownIcon
-            className="h-10 w-10 rounded-full px-2 py-2 cursor-pointer hover:bg-black hover:text-yellow-300"
+            className="h-8 w-8 rounded-full px-2 py-2 cursor-pointer hover:bg-black hover:text-yellow-300"
             onClick={() => setPremDropDown(!premDropDown)}
           />
         </div>
         {premDropDown ? (
-          <div className="cursor-pointer text-2xl">
+          <div className="cursor-pointer text-base">
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => router.push("/premierLeague")}
@@ -47,16 +47,16 @@ function Sidebar() {
           <></>
         )}
       </div>
-      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black hover:border-black text-3xl">
+      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black hover:border-black text-xl">
         <div className="flex justify-between">
           La Liga
           <ChevronDownIcon
-            className="h-10 w-10 rounded-full px-2 py-2 cursor-pointer hover:bg-black hover:text-yellow-300"
+            className="h-8 w-8 rounded-full px-2 py-2 cursor-pointer hover:bg-black hover:text-yellow-300"
             onClick={() => setLaLigaDropDown(!laLigaDropDown)}
           />
         </div>
         {laLigaDropDown ? (
-          <div className="cursor-pointer text-2xl">
+          <div className="cursor-pointer text-base">
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => router.push("/laLiga")}
@@ -75,22 +75,27 @@ function Sidebar() {
             >
               Results
             </p>
-            <p className="pl-2 hover:bg-slate-300">FCBKs Blog</p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => router.push("/laLiga/fcbk")}
+            >
+              FCBKs Blog
+            </p>
           </div>
         ) : (
           <></>
         )}
       </div>
-      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-3xl">
+      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-xl">
         <div className="flex justify-between">
           Serie A
           <ChevronDownIcon
-            className="h-10 w-10 rounded-full px-2 py-2 cursor-pointer hover:bg-black hover:text-yellow-300"
+            className="h-8 w-8 rounded-full px-2 py-2 cursor-pointer hover:bg-black hover:text-yellow-300"
             onClick={() => setSerieADropDown(!serieADropDown)}
           />
         </div>
         {serieADropDown ? (
-          <div className="cursor-pointer text-2xl">
+          <div className="cursor-pointer text-base">
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => router.push("/serieA")}
@@ -114,16 +119,16 @@ function Sidebar() {
           <></>
         )}
       </div>
-      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-3xl">
+      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-xl">
         <div className="flex justify-between">
           Ligue Un
           <ChevronDownIcon
-            className="h-10 w-10 rounded-full px-2 py-2 cursor-pointer hover:bg-black hover:text-yellow-300"
+            className="h-8 w-8 rounded-full px-2 py-2 cursor-pointer hover:bg-black hover:text-yellow-300"
             onClick={() => setLigueUnDropDown(!ligueUnDropDown)}
           />
         </div>
         {ligueUnDropDown ? (
-          <div className="cursor-pointer text-2xl">
+          <div className="cursor-pointer text-base">
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => router.push("/ligueUn")}
@@ -147,16 +152,16 @@ function Sidebar() {
           <></>
         )}
       </div>
-      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-3xl">
+      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-xl">
         <div className="flex justify-between">
           Bundesliga
           <ChevronDownIcon
-            className="h-10 w-10 rounded-full px-2 py-2 cursor-pointer hover:bg-black hover:text-yellow-300"
+            className="h-8 w-8 rounded-full px-2 py-2 cursor-pointer hover:bg-black hover:text-yellow-300"
             onClick={() => setBundesligaDropDown(!bundesligaDropDown)}
           />
         </div>
         {bundesligaDropDown ? (
-          <div className="cursor-pointer text-2xl">
+          <div className="cursor-pointer text-base">
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => router.push("/bundesliga")}
@@ -180,16 +185,16 @@ function Sidebar() {
           <></>
         )}
       </div>
-      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-3xl">
+      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-xl">
         <div className="flex justify-between">
           Champions League
           <ChevronDownIcon
-            className="h-10 w-10 rounded-full px-2 py-2 cursor-pointer hover:bg-black hover:text-yellow-300"
+            className="h-8 w-8 rounded-full px-2 py-2 cursor-pointer hover:bg-black hover:text-yellow-300"
             onClick={() => setChampionsLeagueDropDown(!championsLeagueDropDown)}
           />
         </div>
         {championsLeagueDropDown ? (
-          <div className="cursor-pointer text-2xl">
+          <div className="cursor-pointer text-base">
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => router.push("/championsLeague")}
@@ -198,7 +203,7 @@ function Sidebar() {
             </p>
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/championsLea/results")}
+              onClick={() => router.push("/championsLeague/results")}
             >
               Results
             </p>
@@ -207,16 +212,16 @@ function Sidebar() {
           <></>
         )}
       </div>
-      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black hover:border-black text-3xl">
+      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black hover:border-black text-xl">
         <div className="flex justify-between">
           Transfer News
           <ChevronDownIcon
-            className="h-10 w-10 rounded-full px-2 py-2 cursor-pointer hover:bg-black hover:text-yellow-300"
+            className="h-8 w-8 rounded-full px-2 py-2 cursor-pointer hover:bg-black hover:text-yellow-300"
             onClick={() => setTransferDropDown(!transferDropDown)}
           />
         </div>
         {transferDropDown ? (
-          <div className="cursor-pointer text-2xl">
+          <div className="cursor-pointer text-base">
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => router.push("/transferNews")}

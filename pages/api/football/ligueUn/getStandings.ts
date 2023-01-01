@@ -12,7 +12,6 @@ export default async function handler(
       `${footballRequests.ligueUnRequests.fetchStandings}`,
     {
       headers: {
-        "Content-Type": "application/json",
         "x-rapidapi-host": `${process.env.SPORTS_HOST}`,
         "x-rapidapi-key": `${process.env.SPORTS_API_KEY}`,
       },

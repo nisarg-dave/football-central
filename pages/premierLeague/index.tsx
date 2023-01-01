@@ -1,50 +1,49 @@
 import React from "react";
 import Default from "../../layouts/Default";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
-import Image from "next/image";
 import type { GetServerSideProps } from "next";
 import { leagueTable, fixtures } from "../../typings";
 import WidgetLeagueTable from "../../components/widgets/WidgetLeagueTable";
 import WidgetFixtureCard from "../../components/widgets/WidgetFixtureCard";
 
-interface laLigaProps {
+interface leagueProps {
   standings: leagueTable[];
   fixtures: fixtures[];
 }
 
-function index({ standings, fixtures }: laLigaProps) {
+function index({ standings, fixtures }: leagueProps) {
   return (
     <Default>
-      <div className="flex flex-col bg-yellow-200">
+      <div className="flex flex-col">
         <div className="flex ml-2">
           <img
-            className="w-32 h-32 rounded-full mt-1"
+            className="w-20 h-20 rounded-full mt-1"
             src="https://pbs.twimg.com/profile_images/1572138661025570816/6mbw4KEQ_400x400.jpg"
             alt="Premier League Logo"
           />
-          <h1 className="ml-4 text-4xl font-bold mt-12">Premier League</h1>
+          <h1 className="ml-4 text-2xl font-bold mt-7">Premier League</h1>
         </div>
-        <div className="flex mt-3 ml-6">
+        <div className="flex mt-3 mx-auto">
           {fixtures.map((fixture) => (
             <WidgetFixtureCard key={fixture.id} fixture={fixture} />
           ))}
         </div>
-        <div className="grid grid-cols-7 mt-1">
-          <div className="p-2 col-span-2">
+        <div className="grid grid-cols-4 my-1 mx-auto">
+          <div className="p-2 col-span-1">
             <WidgetLeagueTable standings={standings} />
           </div>
-          <div className="col-span-3 ml-10">
+          <div className="col-span-2 p-2">
             <TwitterTimelineEmbed
               sourceType="profile"
               screenName="SkySportsPL"
-              options={{ height: 820 }}
+              options={{ height: 670 }}
             />
           </div>
-          <div className="w-96 col-span-2 ml-16">
+          <div className="w-72 col-span-1 p-2">
             <TwitterTimelineEmbed
               sourceType="profile"
               screenName="premierleague"
-              options={{ height: 820 }}
+              options={{ height: 670 }}
             />
           </div>
         </div>
