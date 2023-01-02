@@ -4,7 +4,15 @@ import { articles } from "../../../typings";
 import { groq } from "next-sanity";
 import { sanityClient } from "../../../sanity";
 
-const articlesQuery = groq`*[_type=="article"] | order(publishedAt desc)`;
+const articlesQuery = groq`*[_type=="article"]{
+  _id,
+  title,
+  "authorName": author->name,
+  mainImage,
+  "categoryName": category[0]->categoryName,
+  publishedAt,
+  body
+} | order(publishedAt desc)`;
 
 export default async function handler(
   req: NextApiRequest,

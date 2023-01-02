@@ -23,18 +23,12 @@ export interface fixtures {
   awayTeamGoals: string;
 }
 
-export interface articles extends articleBody {
+export interface articles {
   _id: string;
-  _createdAt: string;
-  _rev: string;
-  _type: "article";
-}
-
-export type articleBody = {
   title: string;
-  author: string;
+  authorName: string;
   mainImage: string;
-  categories: string;
+  categoryName: string;
   publishedAt: string;
   body: string;
-};
+}

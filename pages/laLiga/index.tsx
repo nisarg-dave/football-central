@@ -12,7 +12,12 @@ interface leagueProps {
   articles: articles[];
 }
 
-function index({ standings, fixtures }: leagueProps) {
+function index({ standings, fixtures, articles }: leagueProps) {
+  const truncate = (string: articles, n: number) => {
+    string = string.body[0].children[0].text;
+    // String might not be there hence ?
+    return string?.length > n ? string.substr(0, n - 1) + "..." : string;
+  };
   return (
     <Default>
       <div className="flex flex-col bg-yellow-200">
@@ -25,15 +30,26 @@ function index({ standings, fixtures }: leagueProps) {
           <h1 className="ml-4 text-2xl font-bold mt-7">La Liga</h1>
         </div>
         <div className="flex mt-3 mx-auto">
-          {fixtures.map((fixture) => (
+          {/* {fixtures.map((fixture) => (
             <WidgetFixtureCard key={fixture.id} fixture={fixture} />
-          ))}
+          ))} */}
         </div>
         <div className="grid grid-cols-4 my-1 mx-auto">
           <div className="p-2 col-span-1">
-            <WidgetLeagueTable standings={standings} />
+            {/* <WidgetLeagueTable standings={standings} /> */}
           </div>
-          <div className="col-span-2 p-2"></div>
+          <div className="col-span-2 p-2 h-[45rem] overflow-y-scroll">
+            <h1 className="text-xl text-center font-bold">
+              FCBKs Blog Latest Articles
+            </h1>
+            {articles.slice(0, 4).map((article) => (
+              <div key={article._id} className="p-2">
+                <img src={article.mainImage} className="w-full" />
+                <h1 className="font-bold text-lg">{article.title}</h1>
+                <p className="text-sm">{truncate(article, 150)}</p>
+              </div>
+            ))}
+          </div>
           <div className="w-72 col-span-1 p-2">
             <TwitterTimelineEmbed
               sourceType="profile"
@@ -50,22 +66,22 @@ function index({ standings, fixtures }: leagueProps) {
 export default index;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const standingsResponse = await fetch(
-    `${process.env.BASE_URL}/api/football/laLiga/getStandings`
-  );
-  const standings = await standingsResponse.json();
-  const fixturesResponse = await fetch(
-    `${process.env.BASE_URL}/api/football/laLiga/getFixtures`
-  );
-  const fixtures = await fixturesResponse.json();
+  // const standingsResponse = await fetch(
+  //   `${process.env.BASE_URL}/api/football/laLiga/getStandings`
+  // );
+  // const standings = await standingsResponse.json();
+  // const fixturesResponse = await fetch(
+  //   `${process.env.BASE_URL}/api/football/laLiga/getFixtures`
+  // );
+  // const fixtures = await fixturesResponse.json();
   const articlesResponse = await fetch(
     `${process.env.BASE_URL}/api/articles/getArticles`
   );
   const articles = await articlesResponse.json();
   return {
     props: {
-      standings,
-      fixtures,
+      // standings,
+      // fixtures,
       articles,
     },
   };
