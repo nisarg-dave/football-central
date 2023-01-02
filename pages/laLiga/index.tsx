@@ -1,58 +1,44 @@
 import React from "react";
 import Default from "../../layouts/Default";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
-import Image from "next/image";
 import type { GetServerSideProps } from "next";
 import { leagueTable, fixtures, articles } from "../../typings";
 import WidgetLeagueTable from "../../components/widgets/WidgetLeagueTable";
 import WidgetFixtureCard from "../../components/widgets/WidgetFixtureCard";
 
-interface laLigaProps {
+interface leagueProps {
   standings: leagueTable[];
   fixtures: fixtures[];
   articles: articles[];
 }
 
-function index({ standings, fixtures, articles }: laLigaProps) {
-  const truncate = (string, n) => {
-    string = string.body[0].children[0].text;
-    // String might not be there hence ?
-    return string?.length > n ? string.substr(0, n - 1) + "..." : string;
-  };
+function index({ standings, fixtures }: leagueProps) {
   return (
     <Default>
       <div className="flex flex-col bg-yellow-200">
         <div className="flex ml-2">
           <img
-            className="w-32 h-32 rounded-full mt-1"
+            className="w-20 h-20 rounded-full mt-1"
             src="https://pbs.twimg.com/profile_images/1269059076597694470/YUsGePSz_400x400.jpg"
             alt="La Liga Logo"
           />
-          <h1 className="ml-4 text-4xl font-bold mt-12">La Liga</h1>
+          <h1 className="ml-4 text-2xl font-bold mt-7">La Liga</h1>
         </div>
-        <div className="flex mt-3 ml-6">
+        <div className="flex mt-3 mx-auto">
           {fixtures.map((fixture) => (
             <WidgetFixtureCard key={fixture.id} fixture={fixture} />
           ))}
         </div>
-        <div className="grid grid-cols-7 mt-1">
-          <div className="p-2 col-span-2">
+        <div className="grid grid-cols-4 my-1 mx-auto">
+          <div className="p-2 col-span-1">
             <WidgetLeagueTable standings={standings} />
           </div>
-          <div className="col-span-3 pl-5">
-            {articles.map((article) => (
-              <div key={article._id}>
-                <img src={article.mainImage} className="w-full" />
-                <h1 className="font-bold text-2xl">{article.title}</h1>
-                <p>{truncate(article, 150)})</p>
-              </div>
-            ))}
-          </div>
-          <div className="w-96 col-span-2 ml-16">
+          <div className="col-span-2 p-2"></div>
+          <div className="w-72 col-span-1 p-2">
             <TwitterTimelineEmbed
               sourceType="profile"
               screenName="LaLigaEN"
-              options={{ height: 820 }}
+              options={{ height: 670 }}
             />
           </div>
         </div>
