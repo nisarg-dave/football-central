@@ -79,7 +79,7 @@ function Sidebar() {
               className="pl-2 hover:bg-slate-300"
               onClick={() => router.push("/laLiga/fcbk")}
             >
-              FCBKs Blog
+              FCBK&#39;s Blog
             </p>
           </div>
         ) : (
