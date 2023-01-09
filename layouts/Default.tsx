@@ -8,9 +8,9 @@ interface DefaultProps {
 
 function Default({ children }: DefaultProps) {
   return (
-    <div>
+    <div className="bg-yellow-200">
       <Navbar />
-      <div className="flex flex-row bg-yellow-200 h-screen w-screen">
+      <div className="flex flex-row  h-screen w-screen">
         <Sidebar />
         <main className="w-full">{children}</main>
       </div>

@@ -12,7 +12,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section></section>
-      <div className="grid grid-cols-3 p-4 gap-4 ">
+      <div className="grid grid-cols-3 p-4 gap-4">
         <img
           className="w-64 h-64 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
           src="https://pbs.twimg.com/profile_images/1572138661025570816/6mbw4KEQ_400x400.jpg"
@@ -53,7 +53,7 @@ const Home: NextPage = () => {
           className="w-64 h-64 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
           src="https://c4.wallpaperflare.com/wallpaper/639/159/622/soccer-fc-barcelona-logo-wallpaper-preview.jpg"
           alt="FCBK Logo"
-          onClick={() => router.push("/laLiga/fcbk")}
+          onClick={() => router.push("/laLiga/fcbk-s-blog")}
         />
         <img
           className="w-64 h-64 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
