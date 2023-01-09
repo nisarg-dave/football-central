@@ -29,6 +29,7 @@ export interface articles {
   authorName: string;
   mainImage: string;
   categoryName: string;
+  slug: string;
   publishedAt: string;
   body: string;
 }

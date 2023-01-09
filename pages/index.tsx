@@ -53,7 +53,7 @@ const Home: NextPage = () => {
           className="w-64 h-64 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
           src="https://c4.wallpaperflare.com/wallpaper/639/159/622/soccer-fc-barcelona-logo-wallpaper-preview.jpg"
           alt="FCBK Logo"
-          onClick={() => router.push("/laLiga/fcbk-s-blog")}
+          onClick={() => router.push("/laLiga/fcbks-blog")}
         />
         <img
           className="w-64 h-64 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"

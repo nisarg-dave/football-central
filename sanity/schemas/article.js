@@ -20,6 +20,11 @@ export default {
       type: "string",
     },
     {
+      name: "slug",
+      title: "Slug",
+      type: "string",
+    },
+    {
       name: "category",
       title: "Category",
       type: "array",

@@ -9,6 +9,7 @@ const articlesQuery = groq`*[_type=="article"]{
   title,
   "authorName": author->name,
   mainImage,
+  slug,
   "categoryName": category[0]->categoryName,
   publishedAt,
   body

@@ -1,4 +1,5 @@
 import { GetStaticProps } from "next";
+import Link from "next/link";
 import React, { useState } from "react";
 import Default from "../../../layouts/Default";
 import { articles } from "../../../typings";
@@ -81,16 +82,21 @@ function index({ articles }: fCBkHomeProps) {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:p-6 scrollbar-hide overflow-y-scroll">
           {articles.map((article) => (
-            <div className="border border-transparent rounded-lg group cursor-pointer overflow-hidden">
-              <img
-                className="h-60 w-full object-cover group-hover:scale-105"
-                src={article.mainImage}
-                alt=""
-              ></img>
-              <div className="flex flex-col justify-between p-5">
-                <p className="text-lg font-bold">{article.title}</p>
+            <Link
+              key={article._id}
+              href={`/laLiga//fcbks-blog/${article.slug}`}
+            >
+              <div className="border border-transparent rounded-lg group cursor-pointer overflow-hidden">
+                <img
+                  className="h-60 w-full object-cover group-hover:scale-105"
+                  src={article.mainImage}
+                  alt=""
+                ></img>
+                <div className="flex flex-col justify-between p-5">
+                  <p className="text-lg font-bold">{article.title}</p>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
