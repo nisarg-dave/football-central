@@ -22,7 +22,7 @@ function index({ articles }: fCBkHomeProps) {
   return (
     <Default>
       <div className="flex items-center flex-col bg-yellow-200">
-        <h1 className="text-3xl mt-2 font-bold">FCBK&#39;s Blog</h1>
+        <h1 className="text-2xl mt-2 font-bold">FCBK&#39;s Blog</h1>
         <h2 className="text-xl mt-2 font-bold">
           By The Creators of BK&#39;s Blog
         </h2>
@@ -82,7 +82,7 @@ function index({ articles }: fCBkHomeProps) {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:p-6 scrollbar-hide overflow-y-scroll">
           {articles.map((article) => (
-            <Link key={article._id} href={`${article.slug}`}>
+            <Link key={article._id} href={`/laLiga/fcbks-blog/${article.slug}`}>
               <div className="border border-transparent rounded-lg group cursor-pointer overflow-hidden">
                 <img
                   className="h-60 w-full object-cover group-hover:scale-105"

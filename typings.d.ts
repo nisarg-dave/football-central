@@ -31,5 +31,5 @@ export interface articles {
   categoryName: string;
   slug: string;
   publishedAt: string;
-  body: string;
+  body: object[];
 }

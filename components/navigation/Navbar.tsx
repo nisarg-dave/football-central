@@ -11,7 +11,7 @@ function Navbar() {
         alt="Football Logo"
         onClick={() => router.push("/")}
       />
-      <div className="w-full flex justify-center">
+      <div className="w-full justify-center flex">
         <h1 className="font-bold text-4xl pt-2">Football Central</h1>
       </div>
     </div>
