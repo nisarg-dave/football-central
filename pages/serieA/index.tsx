@@ -15,7 +15,7 @@ interface laLigaProps {
 function index({ standings, fixtures }: laLigaProps) {
   return (
     <Default>
-      <div className="flex flex-col">
+      <div className="flex flex-col bg-yellow-200">
         <div className="flex ml-2">
           <img
             className="w-20 h-20 rounded-full mt-1"
