@@ -10,7 +10,6 @@ interface postProps {
 }
 
 function Article({ article }: postProps) {
-  const convertPublishedDate = (t: string) => new Date(t).toDateString();
   return (
     <Default>
       <div className="flex flex-col bg-yellow-200 h-full">
@@ -20,7 +19,7 @@ function Article({ article }: postProps) {
             Article by {article.authorName}
           </p>
           <p className="font-extralight text-sm">
-            {convertPublishedDate(article.publishedAt)}
+            {new Date(article.publishedAt).toDateString()}
           </p>
           <div className="mt-3">
             <PortableText
@@ -62,34 +61,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
   });
   return {
     paths,
-    fallback: "blocking",
+    fallback: false,
   };
 };
 
 // Destructure context to get params which is from above
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const query = `*[_type=="article" && slug == $slug][0]{
-  _id,
-  title,
-  "authorName": author->name,
-  mainImage,
-  slug,
-  "categoryName": category[0]->categoryName,
-  publishedAt,
-  body
-} `;
-
   // Can then replace $slug in query with params.slug
-  const article: articles = await sanityClient.fetch(query, {
-    slug: params?.slug,
-  });
+  const slugResponse = await fetch(
+    `${process.env.BASE_URL}/api/articles/getSlugs?slug=${params?.slug}`
+  );
+  const article = await slugResponse.json();
 
-  // If not found telling nextjs to use 404 page
-  if (!article) {
-    return {
-      notFound: true,
-    };
-  }
   return {
     props: {
       article,
