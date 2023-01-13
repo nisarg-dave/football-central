@@ -33,3 +33,8 @@ export interface articles {
   publishedAt: string;
   body: object[];
 }
+
+interface Tab {
+  name: string;
+  active: boolean;
+}

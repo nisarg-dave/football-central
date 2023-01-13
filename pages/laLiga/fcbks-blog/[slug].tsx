@@ -21,7 +21,7 @@ function Article({ article }: postProps) {
           <p className="font-extralight text-sm">
             {new Date(article.publishedAt).toDateString()}
           </p>
-          <div className="mt-3">
+          <div className="mt-3 py-1">
             <PortableText
               dataset={process.env.NEXT_PUBLIC_SANITY_DATASET || "production"}
               projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
