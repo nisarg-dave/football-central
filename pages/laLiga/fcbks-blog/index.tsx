@@ -18,7 +18,7 @@ function index({ articles }: fCBkHomeProps) {
       active: true,
     },
     {
-      name: "Feature Articles",
+      name: "Featured Articles",
       active: false,
     },
     {
@@ -70,17 +70,17 @@ function index({ articles }: fCBkHomeProps) {
           By The Creators of BK&#39;s Blog
         </h2>
         <Tabs tabs={tabs} onClick={handleSelectedTab} />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:p-6 scrollbar-hide overflow-y-scroll">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 p-2 md:p-6">
           {displayedArticles.map((article) => (
             <Link key={article._id} href={`/laLiga/fcbks-blog/${article.slug}`}>
               <div className="border border-transparent rounded-lg group cursor-pointer overflow-hidden">
                 <img
-                  className="h-60 w-full object-cover group-hover:scale-105"
+                  className="h-48 w-full object-cover group-hover:scale-105"
                   src={article.mainImage}
                   alt=""
                 ></img>
                 <div className="flex flex-col justify-between p-5">
-                  <p className="text-lg font-bold">{article.title}</p>
+                  <p className="text-base font-bold">{article.title}</p>
                 </div>
               </div>
             </Link>
