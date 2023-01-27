@@ -9,10 +9,9 @@ const Home: NextPage = () => {
     <Default>
       <Head>
         <title>Football Central</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="https://freesvg.org/img/soccer_ball2.png" />
       </Head>
-      <section></section>
-      <div className="grid grid-cols-3 p-4 gap-4 bg-yellow-200">
+      <div className="bg-yellow-200 gap-4 p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:gap-6 md:p-6">
         <img
           className="w-64 h-64 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
           src="https://pbs.twimg.com/profile_images/1572138661025570816/6mbw4KEQ_400x400.jpg"
@@ -21,7 +20,7 @@ const Home: NextPage = () => {
         />
         <img
           className="w-64 h-64 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
-          src="https://pbs.twimg.com/profile_images/1269059076597694470/YUsGePSz_400x400.jpg"
+          src="https://pbs.twimg.com/profile_images/1610224492017508353/iDLuRHiC_400x400.jpg"
           alt="La Liga Logo"
           onClick={() => router.push("/laLiga")}
         />
