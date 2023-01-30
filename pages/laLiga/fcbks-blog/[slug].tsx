@@ -1,7 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
 import Default from "../../../layouts/Default";
-import { sanityClient } from "../../../sanity";
 import { articles } from "../../../typings";
 import PortableText from "react-portable-text";
 

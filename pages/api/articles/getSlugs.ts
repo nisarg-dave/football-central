@@ -4,7 +4,7 @@ import { articles } from "../../../typings";
 import { groq } from "next-sanity";
 import { sanityClient } from "../../../sanity";
 
-const slugQuery = `*[_type=="article" && slug == $slug][0]{
+const slugQuery = groq`*[_type=="article" && slug == $slug][0]{
   _id,
   title,
   "authorName": author->name,

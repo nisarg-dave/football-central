@@ -10,7 +10,6 @@ interface fCBkHomeProps {
 }
 
 function index({ articles }: fCBkHomeProps) {
-  const [selectedTab, setSelectedTab] = useState("");
   const [displayedArticles, setDisplayedArticles] = useState<articles[]>([]);
   const [tabs, setTabs] = useState([
     {
@@ -34,11 +33,6 @@ function index({ articles }: fCBkHomeProps) {
       active: false,
     },
   ]);
-  const truncate = (string: articles, n: number) => {
-    string = string.body[0].children[0].text;
-    // String might not be there hence ?
-    return string?.length > n ? string.substr(0, n - 1) + "..." : string;
-  };
   useEffect(() => {
     setDisplayedArticles(articles);
   }, []);
@@ -51,13 +45,11 @@ function index({ articles }: fCBkHomeProps) {
       }
     });
     if (activeTab && activeTab !== "All Posts") {
-      console.log("reached if");
       const filteredArticles = articles.filter(
         (article) => article.categoryName === activeTab
       );
       setDisplayedArticles(filteredArticles);
     } else {
-      console.log("reached else");
       setDisplayedArticles(articles);
     }
   };
