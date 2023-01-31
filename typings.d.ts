@@ -32,6 +32,7 @@ export interface articles {
   slug: string;
   publishedAt: string;
   body: object[];
+  barcaFixture?: string;
 }
 
 interface Tab {

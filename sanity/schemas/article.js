@@ -40,6 +40,12 @@ export default {
       title: "Body",
       type: "blockContent",
     },
+    {
+      name: "barcaFixture",
+      title: "Barca Fixture",
+      type: "array",
+      of: [{ type: "reference", to: { type: "barcaFixture" } }],
+    },
   ],
 
   preview: {

@@ -12,7 +12,8 @@ const articlesQuery = groq`*[_type=="article"]{
   slug,
   "categoryName": category[0]->categoryName,
   publishedAt,
-  body
+  body,
+  "barcaFixture": barcaFixture[0]->fixture
 } | order(publishedAt desc)`;
 
 export default async function handler(

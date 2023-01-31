@@ -38,6 +38,7 @@ function Article({ article }: postProps) {
               }}
             />
           </div>
+          {article.barcaFixture}
         </article>
       </div>
     </Default>
@@ -71,6 +72,16 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     `${process.env.BASE_URL}/api/articles/getSlugs?slug=${params?.slug}`
   );
   const article = await slugResponse.json();
+
+  const fixtureId = parseInt(article.barcaFixture.split(",")[1]);
+
+  const statsResponse = await fetch(
+    `${process.env.BASE_URL}/api/football/laLiga/getBarcaStats?fixture=${fixtureId}`
+  );
+
+  const stats = await statsResponse.json();
+
+  console.log(stats);
 
   return {
     props: {

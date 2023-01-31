@@ -12,7 +12,8 @@ const slugQuery = groq`*[_type=="article" && slug == $slug][0]{
   slug,
   "categoryName": category[0]->categoryName,
   publishedAt,
-  body
+  body,
+  "barcaFixture": barcaFixture[0]->fixture
 } `;
 
 export default async function handler(
