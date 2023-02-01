@@ -1,14 +1,16 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
 import Default from "../../../layouts/Default";
-import { articles } from "../../../typings";
+import { articles, statistics } from "../../../typings";
 import PortableText from "react-portable-text";
+import WidgetStatCard from "../../../components/widgets/WidgetStatCard";
 
 interface postProps {
   article: articles;
+  stats: statistics;
 }
 
-function Article({ article }: postProps) {
+function Article({ article, stats }: postProps) {
   return (
     <Default>
       <div className="flex flex-col bg-yellow-200 h-full">
@@ -38,7 +40,7 @@ function Article({ article }: postProps) {
               }}
             />
           </div>
-          {article.barcaFixture}
+          {article.barcaFixture ? <WidgetStatCard stats={stats} /> : <></>}
         </article>
       </div>
     </Default>
@@ -73,16 +75,23 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   );
   const article = await slugResponse.json();
 
-  const fixtureId = parseInt(article.barcaFixture.split(",")[1]);
+  const fixtureId = parseInt(article?.barcaFixture?.split(",")[1]);
 
-  const statsResponse = await fetch(
-    `${process.env.BASE_URL}/api/football/laLiga/getBarcaStats?fixture=${fixtureId}`
-  );
+  let stats;
 
-  const stats = await statsResponse.json();
+  if (article.barcaFixture) {
+    const statsResponse = await fetch(
+      `${process.env.BASE_URL}/api/football/laLiga/getBarcaStats?fixture=${fixtureId}`
+    );
 
-  console.log(stats);
-
+    stats = await statsResponse.json();
+    return {
+      props: {
+        article,
+        stats,
+      },
+    };
+  }
   return {
     props: {
       article,

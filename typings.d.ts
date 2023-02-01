@@ -35,7 +35,30 @@ export interface articles {
   barcaFixture?: string;
 }
 
-interface Tab {
+export interface statistics {
+  homeTeamTotalShots: number | null;
+  homeTeamShotsOnTarget: number | null;
+  homeTeamPossession: string | null;
+  homeTeamPasses: number | null;
+  homeTeamPassAccuracy: string | null;
+  homeTeamFouls: number | null;
+  homeTeamYellowCards: number | null;
+  homeTeamRedCards: number | null;
+  homeTeamOffsides: number | null;
+  homeCorners: number | null;
+  awayTeamTotalShots: number | null;
+  awayTeamShotsOnTarget: number | null;
+  awayTeamPossession: string | null;
+  awayTeamPasses: number | null;
+  awayTeamPassAccuracy: string | null;
+  awayTeamFouls: number | null;
+  awayTeamYellowCards: number | null;
+  awayTeamRedCards: number | null;
+  awayTeamOffsides: number | null;
+  awayCorners: number | null;
+}
+
+export interface Tab {
   name: string;
   active: boolean;
 }
