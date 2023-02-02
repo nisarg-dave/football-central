@@ -33,3 +33,9 @@ const footballRequests = {
 };
 
 export default footballRequests;
+
+// La Liga -> 140
+// Champions Leaue -> 2
+// Europa League -> 3
+// Super Cup -> 556
+// Copa Del Ray -> 143

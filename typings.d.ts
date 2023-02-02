@@ -36,6 +36,7 @@ export interface articles {
 }
 
 export interface statistics {
+  homeTeam: string | null;
   homeTeamTotalShots: number | null;
   homeTeamShotsOnTarget: number | null;
   homeTeamPossession: string | null;
@@ -46,6 +47,7 @@ export interface statistics {
   homeTeamRedCards: number | null;
   homeTeamOffsides: number | null;
   homeCorners: number | null;
+  awayTeam: string | null;
   awayTeamTotalShots: number | null;
   awayTeamShotsOnTarget: number | null;
   awayTeamPossession: string | null;

@@ -9,9 +9,9 @@ function WidgetStatCard({ stats }: StatsCardProps) {
   return (
     <div className="bg-slate-300 flex flex-col py-2 px-4 mt-2">
       <div className="flex justify-between my-2">
-        <p className="text-base font-bold">Home Team</p>
+        <p className="text-base font-bold">{stats.homeTeam}</p>
         <p className="text-base font-bold">Team Stats</p>
-        <p className="text-base font-bold">Away Team</p>
+        <p className="text-base font-bold">{stats.awayTeam}</p>
       </div>
       <div className="flex justify-between my-2">
         <p className="text-base text-center">

@@ -28,6 +28,11 @@ export default async function handler(
   );
 
   const data = await response.json();
+
+  const { teams } = data.response[0];
+  const homeTeam = teams.home.name;
+  const awayTeam = teams.away.name;
+
   const { statistics } = data.response[0];
   const homeTeamTotalShots = statistics[0]?.statistics[2]?.value;
   const homeTeamShotsOnTarget = statistics[0]?.statistics[0]?.value;
@@ -51,6 +56,7 @@ export default async function handler(
   const awayCorners = statistics[1]?.statistics[7]?.value;
 
   const stats = {
+    homeTeam,
     homeTeamTotalShots,
     homeTeamShotsOnTarget,
     homeTeamPossession,
@@ -61,6 +67,7 @@ export default async function handler(
     homeTeamRedCards,
     homeTeamOffsides,
     homeCorners,
+    awayTeam,
     awayTeamTotalShots,
     awayTeamShotsOnTarget,
     awayTeamPossession,
