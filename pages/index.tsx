@@ -11,7 +11,7 @@ const Home: NextPage = () => {
         <title>Football Central</title>
         <link rel="icon" href="https://freesvg.org/img/soccer_ball2.png" />
       </Head>
-      <div className="bg-yellow-200 gap-4 p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:gap-6 md:p-6">
+      <div className="gap-4 p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:gap-6 md:p-6">
         <img
           className="w-64 h-64 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
           src="https://pbs.twimg.com/profile_images/1572138661025570816/6mbw4KEQ_400x400.jpg"

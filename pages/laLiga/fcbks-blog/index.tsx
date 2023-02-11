@@ -56,7 +56,7 @@ function index({ articles }: fCBkHomeProps) {
 
   return (
     <Default>
-      <div className="flex items-center flex-col bg-yellow-200">
+      <div className="flex items-center flex-col">
         <h1 className="text-2xl mt-2 font-bold">FCBK&#39;s Blog</h1>
         <h2 className="text-lg mt-2 font-bold">
           By The Creators of BK&#39;s Blog

@@ -13,7 +13,7 @@ interface postProps {
 function Article({ article, stats }: postProps) {
   return (
     <Default>
-      <div className="flex flex-col bg-yellow-200 h-full">
+      <div className="flex flex-col h-full">
         <article className="max-w-3xl mx-auto p-5 h-[50rem] scrollbar-hide overflow-y-scroll">
           <h1 className="text-3xl mt-10 mb-3">{article.title}</h1>
           <p className="font-extralight text-sm">
