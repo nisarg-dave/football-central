@@ -10,7 +10,7 @@ interface fCBkHomeProps {
   articles: articles[];
 }
 
-function index({ articles }: fCBkHomeProps) {
+function Index({ articles }: fCBkHomeProps) {
   const [displayedArticles, setDisplayedArticles] = useState<articles[]>([]);
   const tabs = useTabs();
   const setActiveTab = useSetActiveTab();
@@ -69,7 +69,7 @@ function index({ articles }: fCBkHomeProps) {
   );
 }
 
-export default index;
+export default Index;
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const articlesResponse = await fetch(

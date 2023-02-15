@@ -17,7 +17,7 @@ function Tabs({ tabs, onClick }: tabProps) {
   return (
     <ul className="flex flex-col sm:flex-row flex-wrap list-none mx-8">
       {tabs.map((tab) => (
-        <li className="flex-auto text-center">
+        <li className="flex-auto text-center" key={tab.name}>
           <button
             className={
               tab.active
