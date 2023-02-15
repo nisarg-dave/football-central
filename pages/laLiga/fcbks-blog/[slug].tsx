@@ -79,7 +79,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const article = await slugResponse.json();
 
   if (article.barcaFixture) {
-    const fixtureId = parseInt(article?.barcaFixture?.split(",")[1]);
+    const fixtureId = parseInt(article?.barcaFixture?.split(",")[2]);
 
     const statsResponse = await fetch(
       `${process.env.BASE_URL}/api/football/laLiga/getBarcaStats?fixture=${fixtureId}`
