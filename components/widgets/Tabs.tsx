@@ -4,17 +4,13 @@ import { useRouter } from "next/router";
 
 interface tabProps {
   tabs: Tab[];
-  onClick: (t: Tab[]) => void;
+  onClick: (t: Tab) => void;
 }
 
 function Tabs({ tabs, onClick }: tabProps) {
   const router = useRouter();
   const handleClick = (selectedTab: Tab) => {
-    tabs.map((tab) => {
-      tab.active = false;
-    });
-    selectedTab.active = true;
-    onClick(tabs);
+    onClick(selectedTab);
     // performing client-side transition to the same router. router.asPath is a reference to the current path
     router.replace(router.asPath);
   };

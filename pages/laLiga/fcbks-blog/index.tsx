@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Default from "../../../layouts/Default";
 import { articles, Tab } from "../../../typings";
 import Tabs from "../../../components/widgets/Tabs";
+import { useTabs, useSetActiveTab } from "../../../store/store";
 
 interface fCBkHomeProps {
   articles: articles[];
@@ -11,42 +12,27 @@ interface fCBkHomeProps {
 
 function index({ articles }: fCBkHomeProps) {
   const [displayedArticles, setDisplayedArticles] = useState<articles[]>([]);
-  const [tabs, setTabs] = useState([
-    {
-      name: "All Posts",
-      active: true,
-    },
-    {
-      name: "Featured Articles",
-      active: false,
-    },
-    {
-      name: "Opinion",
-      active: false,
-    },
-    {
-      name: "Quick Updates",
-      active: false,
-    },
-    {
-      name: "Post-Match Reviews",
-      active: false,
-    },
-  ]);
+  const tabs = useTabs();
+  const setActiveTab = useSetActiveTab();
+
   useEffect(() => {
-    setDisplayedArticles(articles);
+    const activeTab = tabs.find((tab) => tab.active);
+    if (activeTab && activeTab.name !== "All Posts") {
+      const filteredArticles = articles.filter(
+        (article) => article.categoryName === activeTab.name
+      );
+      setDisplayedArticles(filteredArticles);
+    } else {
+      setActiveTab("All Posts");
+      setDisplayedArticles(articles);
+    }
   }, []);
 
-  const handleSelectedTab = (newTabs: Tab[]) => {
-    setTabs(newTabs);
-    const { name: activeTab } = tabs.find((tab) => {
-      if (tab.active) {
-        return tab;
-      }
-    });
-    if (activeTab && activeTab !== "All Posts") {
+  const handleSelectedTab = (selectedTab: Tab) => {
+    setActiveTab(selectedTab.name);
+    if (selectedTab.name !== "All Posts") {
       const filteredArticles = articles.filter(
-        (article) => article.categoryName === activeTab
+        (article) => article.categoryName === selectedTab.name
       );
       setDisplayedArticles(filteredArticles);
     } else {

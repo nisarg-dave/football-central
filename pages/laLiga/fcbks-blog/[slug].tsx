@@ -37,6 +37,9 @@ function Article({ article, stats }: postProps) {
                 li: ({ children }: any) => (
                   <li className="ml-4 list-disc">{children}</li>
                 ),
+                link: (props: any) => (
+                  <a className="underline text-blue-400" {...props} />
+                ),
               }}
             />
           </div>
