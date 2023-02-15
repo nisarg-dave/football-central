@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.layout {
+  display: grid;
+  grid-template-areas:
+    "nav nav"
+    "sidenav main";
+  grid-template-rows: 4rem 1fr;
+  grid-template-columns: 15rem 1fr;
+}
+
+.nav {
+  grid-area: nav;
+}
+.sidenav {
+  grid-area: sidenav;
+}
+.main {
+  grid-area: main;
+  background: rgb(254 240 138);
+  min-height: 100vh;
+}

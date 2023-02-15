@@ -13,7 +13,7 @@ function Sidebar() {
   const router = useRouter();
 
   return (
-    <div className="w-60 border-black bg-black text-yellow-300 flex flex-col flex-none">
+    <div className="w-60 border-black bg-black text-yellow-300 flex flex-col flex-none sidenav">
       <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-xl">
         <div className="flex justify-between">
           Premier League
@@ -77,9 +77,9 @@ function Sidebar() {
             </p>
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/laLiga/fcbk")}
+              onClick={() => router.push("/laLiga/fcbks-blog")}
             >
-              FCBKs Blog
+              FCBK&#39;s Blog
             </p>
           </div>
         ) : (
