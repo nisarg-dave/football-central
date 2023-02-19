@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/router";
 
-function Sidebar() {
+interface sideProps {
+  showSide: boolean;
+}
+
+function Sidebar({ showSide }: sideProps) {
   const [premDropDown, setPremDropDown] = useState(false);
   const [laLigaDropDown, setLaLigaDropDown] = useState(false);
   const [serieADropDown, setSerieADropDown] = useState(false);
@@ -13,7 +17,13 @@ function Sidebar() {
   const router = useRouter();
 
   return (
-    <div className="w-60 border-black bg-black text-yellow-300 flex flex-col flex-none sidenav">
+    <div
+      className={
+        showSide
+          ? "border-black bg-black text-yellow-300 md:w-60 md:flex md:flex-col md:flex-none sidenav w-full"
+          : "hidden sidenav"
+      }
+    >
       <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-xl">
         <div className="flex justify-between">
           Premier League

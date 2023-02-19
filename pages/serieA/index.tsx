@@ -7,12 +7,12 @@ import { leagueTable, fixtures } from "../../typings";
 import WidgetLeagueTable from "../../components/widgets/WidgetLeagueTable";
 import WidgetFixtureCard from "../../components/widgets/WidgetFixtureCard";
 
-interface laLigaProps {
+interface leagueProps {
   standings: leagueTable[];
   fixtures: fixtures[];
 }
 
-function index({ standings, fixtures }: laLigaProps) {
+function index({ standings, fixtures }: leagueProps) {
   return (
     <Default>
       <div className="flex flex-col">
