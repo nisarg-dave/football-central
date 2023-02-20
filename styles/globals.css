@@ -23,6 +23,7 @@ body {
   }
   .sidenav {
     grid-area: sidenav;
+    min-height: 100vh;
   }
   .main {
     grid-area: main;

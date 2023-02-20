@@ -4,9 +4,10 @@ import { useRouter } from "next/router";
 
 interface sideProps {
   showSide: boolean;
+  handleShowSide: () => void;
 }
 
-function Sidebar({ showSide }: sideProps) {
+function Sidebar({ showSide, handleShowSide }: sideProps) {
   const [premDropDown, setPremDropDown] = useState(false);
   const [laLigaDropDown, setLaLigaDropDown] = useState(false);
   const [serieADropDown, setSerieADropDown] = useState(false);
@@ -21,10 +22,10 @@ function Sidebar({ showSide }: sideProps) {
       className={
         showSide
           ? "border-black bg-black text-yellow-300 md:w-60 md:flex md:flex-col md:flex-none sidenav w-full"
-          : "hidden sidenav"
+          : "hidden sidenav border-black bg-black text-yellow-300 md:w-60 md:flex md:flex-col md:flex-none"
       }
     >
-      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-xl">
+      <div className="border-y border-yellow-300 py-2 px-2 hover:bg-yellow-300 hover:text-black text-lg md:text-xl">
         <div className="flex justify-between">
           Premier League
           <ChevronDownIcon
@@ -36,19 +37,28 @@ function Sidebar({ showSide }: sideProps) {
           <div className="cursor-pointer text-base">
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/premierLeague")}
+              onClick={() => {
+                handleShowSide();
+                router.push("/premierLeague");
+              }}
             >
               Home
             </p>
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/premierLeague/standings")}
+              onClick={() => {
+                handleShowSide();
+                router.push("/premierLeague/standings");
+              }}
             >
               Standings
             </p>
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/premierLeague/results")}
+              onClick={() => {
+                handleShowSide();
+                router.push("/premierLeague/results");
+              }}
             >
               Results
             </p>
@@ -57,7 +67,7 @@ function Sidebar({ showSide }: sideProps) {
           <></>
         )}
       </div>
-      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black hover:border-black text-xl">
+      <div className="border-y border-yellow-300 py-2 px-2 hover:bg-yellow-300 hover:text-black hover:border-black text-lg md:text-xl">
         <div className="flex justify-between">
           La Liga
           <ChevronDownIcon
@@ -69,25 +79,37 @@ function Sidebar({ showSide }: sideProps) {
           <div className="cursor-pointer text-base">
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/laLiga")}
+              onClick={() => {
+                handleShowSide();
+                router.push("/laLiga");
+              }}
             >
               Home
             </p>
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/laLiga/standings")}
+              onClick={() => {
+                handleShowSide();
+                router.push("/laLiga/standings");
+              }}
             >
               Standings
             </p>
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/laLiga/results")}
+              onClick={() => {
+                handleShowSide();
+                router.push("/laLiga/results");
+              }}
             >
               Results
             </p>
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/laLiga/fcbks-blog")}
+              onClick={() => {
+                handleShowSide();
+                router.push("/laLiga/fcbks-blog");
+              }}
             >
               FCBK&#39;s Blog
             </p>
@@ -96,7 +118,7 @@ function Sidebar({ showSide }: sideProps) {
           <></>
         )}
       </div>
-      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-xl">
+      <div className="border-y border-yellow-300 py-2 px-2 hover:bg-yellow-300 hover:text-black text-lg md:text-xl">
         <div className="flex justify-between">
           Serie A
           <ChevronDownIcon
@@ -108,19 +130,28 @@ function Sidebar({ showSide }: sideProps) {
           <div className="cursor-pointer text-base">
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/serieA")}
+              onClick={() => {
+                handleShowSide();
+                router.push("/serieA");
+              }}
             >
               Home
             </p>
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/serieA/standings")}
+              onClick={() => {
+                handleShowSide();
+                router.push("/serieA/standings");
+              }}
             >
               Standings
             </p>
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/serieA/results")}
+              onClick={() => {
+                handleShowSide();
+                router.push("/serieA/results");
+              }}
             >
               Results
             </p>
@@ -129,7 +160,7 @@ function Sidebar({ showSide }: sideProps) {
           <></>
         )}
       </div>
-      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-xl">
+      <div className="border-y border-yellow-300 py-2 px-2 hover:bg-yellow-300 hover:text-black text-lg md:text-xl">
         <div className="flex justify-between">
           Ligue Un
           <ChevronDownIcon
@@ -141,19 +172,28 @@ function Sidebar({ showSide }: sideProps) {
           <div className="cursor-pointer text-base">
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/ligueUn")}
+              onClick={() => {
+                handleShowSide();
+                router.push("/ligueUn");
+              }}
             >
               Home
             </p>
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/ligueUn/standings")}
+              onClick={() => {
+                handleShowSide();
+                router.push("/ligueUn/standings");
+              }}
             >
               Standings
             </p>
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/ligueUn/results")}
+              onClick={() => {
+                handleShowSide();
+                router.push("/ligueUn/results");
+              }}
             >
               Results
             </p>
@@ -162,7 +202,7 @@ function Sidebar({ showSide }: sideProps) {
           <></>
         )}
       </div>
-      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-xl">
+      <div className="border-y border-yellow-300 py-2 px-2 hover:bg-yellow-300 hover:text-black text-lg md:text-xl">
         <div className="flex justify-between">
           Bundesliga
           <ChevronDownIcon
@@ -174,19 +214,28 @@ function Sidebar({ showSide }: sideProps) {
           <div className="cursor-pointer text-base">
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/bundesliga")}
+              onClick={() => {
+                handleShowSide();
+                router.push("/bundesliga");
+              }}
             >
               Home
             </p>
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/bundesliga/standings")}
+              onClick={() => {
+                handleShowSide();
+                router.push("/bundesliga/standings");
+              }}
             >
               Standings
             </p>
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/bundesliga/results")}
+              onClick={() => {
+                handleShowSide();
+                router.push("/bundesliga/results");
+              }}
             >
               Results
             </p>
@@ -195,7 +244,7 @@ function Sidebar({ showSide }: sideProps) {
           <></>
         )}
       </div>
-      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black text-xl">
+      <div className="border-y border-yellow-300 py-2 px-2 hover:bg-yellow-300 hover:text-black text-lg md:text-xl">
         <div className="flex justify-between">
           Champions League
           <ChevronDownIcon
@@ -207,13 +256,19 @@ function Sidebar({ showSide }: sideProps) {
           <div className="cursor-pointer text-base">
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/championsLeague")}
+              onClick={() => {
+                handleShowSide();
+                router.push("/championsLeague");
+              }}
             >
               Home
             </p>
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/championsLeague/results")}
+              onClick={() => {
+                handleShowSide();
+                router.push("/championsLeague/results");
+              }}
             >
               Results
             </p>
@@ -222,7 +277,7 @@ function Sidebar({ showSide }: sideProps) {
           <></>
         )}
       </div>
-      <div className="border-y border-yellow-300 py-2 px-1 hover:bg-yellow-300 hover:text-black hover:border-black text-xl">
+      <div className="border-y border-yellow-300 py-2 px-2 hover:bg-yellow-300 hover:text-black hover:border-black text-lg md:text-xl">
         <div className="flex justify-between">
           Transfer News
           <ChevronDownIcon
@@ -234,7 +289,10 @@ function Sidebar({ showSide }: sideProps) {
           <div className="cursor-pointer text-base">
             <p
               className="pl-2 hover:bg-slate-300"
-              onClick={() => router.push("/transferNews")}
+              onClick={() => {
+                handleShowSide();
+                router.push("/transferNews");
+              }}
             >
               Home
             </p>

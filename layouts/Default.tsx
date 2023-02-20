@@ -11,8 +11,15 @@ function Default({ children }: DefaultProps) {
   return (
     <div className="layout min-h-screen">
       <Navbar handleShowSide={() => setShowSide(!showSide)} />
-      <Sidebar showSide={showSide} />
-      <main className="main">{children}</main>
+      <Sidebar
+        handleShowSide={() => setShowSide(!showSide)}
+        showSide={showSide}
+      />
+      {showSide ? (
+        <main className="hidden md:main md:block">{children}</main>
+      ) : (
+        <main className="md:main md:block">{children}</main>
+      )}
     </div>
   );
 }
