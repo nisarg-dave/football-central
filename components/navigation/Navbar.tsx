@@ -3,16 +3,16 @@ import { useRouter } from "next/router";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 
 interface navProps {
-  handleShowSide: () => void;
+  toggleSideNav: () => void;
 }
 
-function Navbar({ handleShowSide }: navProps) {
+function Navbar({ toggleSideNav }: navProps) {
   const router = useRouter();
   return (
-    <header className="bg-black border-black py-1.5 text-yellow-300 flex items-center h-16 min-w-screen nav">
+    <header className="bg-black border-black py-1.5 text-yellow-300 flex items-center h-16 nav">
       <Bars3Icon
         className="h-12 w-12 ml-3 rounded-full px-2 py-2 cursor-pointer text-yellow-300 md:hidden"
-        onClick={handleShowSide}
+        onClick={toggleSideNav}
       />
       <nav className="hidden md:w-60 md:block">
         <img
@@ -23,7 +23,7 @@ function Navbar({ handleShowSide }: navProps) {
         />
       </nav>
       <div className="w-full justify-center flex">
-        <h1 className="font-bold text-2xl md:text-4xl pt-2">
+        <h1 className="font-bold text-2xl md:text-4xl md:pt-2">
           Football Central
         </h1>
       </div>

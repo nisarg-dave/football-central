@@ -4,10 +4,10 @@ import { useRouter } from "next/router";
 
 interface sideProps {
   showSide: boolean;
-  handleShowSide: () => void;
+  toggleSideNav: () => void;
 }
 
-function Sidebar({ showSide, handleShowSide }: sideProps) {
+function Sidebar({ showSide, toggleSideNav }: sideProps) {
   const [premDropDown, setPremDropDown] = useState(false);
   const [laLigaDropDown, setLaLigaDropDown] = useState(false);
   const [serieADropDown, setSerieADropDown] = useState(false);
@@ -21,10 +21,16 @@ function Sidebar({ showSide, handleShowSide }: sideProps) {
     <div
       className={
         showSide
-          ? "border-black bg-black text-yellow-300 md:w-60 md:flex md:flex-col md:flex-none sidenav w-full"
-          : "hidden sidenav border-black bg-black text-yellow-300 md:w-60 md:flex md:flex-col md:flex-none"
+          ? "border-black bg-black text-yellow-300 md:w-60 md:flex md:flex-col sidenav w-full"
+          : "hidden sidenav border-black bg-black text-yellow-300 md:w-60 md:flex md:flex-col"
       }
     >
+      <div
+        className="border-y border-yellow-300 py-2 px-2 cursor-pointer hover:bg-yellow-300 hover:text-black text-lg md:hidden"
+        onClick={() => router.push("/")}
+      >
+        <div className="flex">Home</div>
+      </div>
       <div className="border-y border-yellow-300 py-2 px-2 hover:bg-yellow-300 hover:text-black text-lg md:text-xl">
         <div className="flex justify-between">
           Premier League
@@ -38,7 +44,7 @@ function Sidebar({ showSide, handleShowSide }: sideProps) {
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => {
-                handleShowSide();
+                toggleSideNav();
                 router.push("/premierLeague");
               }}
             >
@@ -47,7 +53,7 @@ function Sidebar({ showSide, handleShowSide }: sideProps) {
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => {
-                handleShowSide();
+                toggleSideNav();
                 router.push("/premierLeague/standings");
               }}
             >
@@ -56,7 +62,7 @@ function Sidebar({ showSide, handleShowSide }: sideProps) {
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => {
-                handleShowSide();
+                toggleSideNav();
                 router.push("/premierLeague/results");
               }}
             >
@@ -80,7 +86,7 @@ function Sidebar({ showSide, handleShowSide }: sideProps) {
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => {
-                handleShowSide();
+                toggleSideNav();
                 router.push("/laLiga");
               }}
             >
@@ -89,7 +95,7 @@ function Sidebar({ showSide, handleShowSide }: sideProps) {
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => {
-                handleShowSide();
+                toggleSideNav();
                 router.push("/laLiga/standings");
               }}
             >
@@ -98,7 +104,7 @@ function Sidebar({ showSide, handleShowSide }: sideProps) {
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => {
-                handleShowSide();
+                toggleSideNav();
                 router.push("/laLiga/results");
               }}
             >
@@ -107,7 +113,7 @@ function Sidebar({ showSide, handleShowSide }: sideProps) {
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => {
-                handleShowSide();
+                toggleSideNav();
                 router.push("/laLiga/fcbks-blog");
               }}
             >
@@ -131,7 +137,7 @@ function Sidebar({ showSide, handleShowSide }: sideProps) {
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => {
-                handleShowSide();
+                toggleSideNav();
                 router.push("/serieA");
               }}
             >
@@ -140,7 +146,7 @@ function Sidebar({ showSide, handleShowSide }: sideProps) {
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => {
-                handleShowSide();
+                toggleSideNav();
                 router.push("/serieA/standings");
               }}
             >
@@ -149,7 +155,7 @@ function Sidebar({ showSide, handleShowSide }: sideProps) {
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => {
-                handleShowSide();
+                toggleSideNav();
                 router.push("/serieA/results");
               }}
             >
@@ -173,7 +179,7 @@ function Sidebar({ showSide, handleShowSide }: sideProps) {
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => {
-                handleShowSide();
+                toggleSideNav();
                 router.push("/ligueUn");
               }}
             >
@@ -182,7 +188,7 @@ function Sidebar({ showSide, handleShowSide }: sideProps) {
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => {
-                handleShowSide();
+                toggleSideNav();
                 router.push("/ligueUn/standings");
               }}
             >
@@ -191,7 +197,7 @@ function Sidebar({ showSide, handleShowSide }: sideProps) {
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => {
-                handleShowSide();
+                toggleSideNav();
                 router.push("/ligueUn/results");
               }}
             >
@@ -215,7 +221,7 @@ function Sidebar({ showSide, handleShowSide }: sideProps) {
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => {
-                handleShowSide();
+                toggleSideNav();
                 router.push("/bundesliga");
               }}
             >
@@ -224,7 +230,7 @@ function Sidebar({ showSide, handleShowSide }: sideProps) {
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => {
-                handleShowSide();
+                toggleSideNav();
                 router.push("/bundesliga/standings");
               }}
             >
@@ -233,7 +239,7 @@ function Sidebar({ showSide, handleShowSide }: sideProps) {
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => {
-                handleShowSide();
+                toggleSideNav();
                 router.push("/bundesliga/results");
               }}
             >
@@ -257,7 +263,7 @@ function Sidebar({ showSide, handleShowSide }: sideProps) {
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => {
-                handleShowSide();
+                toggleSideNav();
                 router.push("/championsLeague");
               }}
             >
@@ -266,7 +272,7 @@ function Sidebar({ showSide, handleShowSide }: sideProps) {
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => {
-                handleShowSide();
+                toggleSideNav();
                 router.push("/championsLeague/results");
               }}
             >
@@ -290,7 +296,7 @@ function Sidebar({ showSide, handleShowSide }: sideProps) {
             <p
               className="pl-2 hover:bg-slate-300"
               onClick={() => {
-                handleShowSide();
+                toggleSideNav();
                 router.push("/transferNews");
               }}
             >
