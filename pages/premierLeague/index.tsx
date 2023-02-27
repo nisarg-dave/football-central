@@ -28,7 +28,7 @@ function index({ standings, fixtures }: leagueProps) {
             <WidgetFixtureCard key={fixture.id} fixture={fixture} />
           ))}
         </div>
-        <div className="md:grid md:grid-cols-4 md:my-1 md:mx-auto hidden ">
+        <div className="md:grid md:grid-cols-4 md:my-1 md:mx-auto hidden">
           <div className="p-2 col-span-1">
             <WidgetLeagueTable standings={standings} />
           </div>

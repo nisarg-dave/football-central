@@ -7,7 +7,7 @@ interface ResultCardProps {
 
 function ResultCard({ result }: ResultCardProps) {
   return (
-    <div className="bg-slate-300 w-full h-40 sm:h-48 md:h-52 mx-auto">
+    <div className="bg-slate-300 w-full h-40 sm:h-48 md:h-56 mx-auto">
       <div className="flex items-center justify-around mt-2">
         <img
           src={result.homeTeamLogo}

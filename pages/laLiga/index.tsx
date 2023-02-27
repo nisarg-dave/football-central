@@ -30,12 +30,12 @@ function index({ standings, fixtures, articles }: leagueProps) {
           />
           <h1 className="ml-4 text-2xl font-bold mt-7">La Liga</h1>
         </div>
-        <div className="flex mt-3 mx-auto">
+        <div className="flex flex-col md:flex-row mt-3 mx-auto">
           {fixtures.map((fixture) => (
             <WidgetFixtureCard key={fixture.id} fixture={fixture} />
           ))}
         </div>
-        <div className="grid grid-cols-4 my-1 mx-auto">
+        <div className="md:grid md:grid-cols-4 md:my-1 md:mx-auto hidden">
           <div className="p-2 col-span-1">
             <WidgetLeagueTable standings={standings} />
           </div>
