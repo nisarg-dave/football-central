@@ -10,7 +10,6 @@ function Default({ children }: DefaultProps) {
   const [showSide, setShowSide] = useState(false);
   const toggleSideNav = () => {
     setShowSide(!showSide);
-    console.log(showSide);
   };
   return (
     <div className="layout min-h-screen">
@@ -19,7 +18,7 @@ function Default({ children }: DefaultProps) {
       {showSide ? (
         <main className="hidden md:main md:block">{children}</main>
       ) : (
-        <main className="main block">{children}</main>
+        <main>{children}</main>
       )}
     </div>
   );

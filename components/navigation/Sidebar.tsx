@@ -21,7 +21,7 @@ function Sidebar({ showSide, toggleSideNav }: sideProps) {
     <div
       className={
         showSide
-          ? "border-black bg-black text-yellow-300 md:w-60 md:flex md:flex-col sidenav w-full"
+          ? "border-black bg-black text-yellow-300 md:w-60 md:flex md:flex-col sidenav w-full flex-col"
           : "hidden sidenav border-black bg-black text-yellow-300 md:w-60 md:flex md:flex-col"
       }
     >
