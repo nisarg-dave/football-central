@@ -23,6 +23,14 @@ export interface fixtures {
   awayTeamGoals: string;
 }
 
+interface articleBody {
+  _key: string;
+  _type: string;
+  children: { _key: string; _type: strin; marks: string[]; text: string }[];
+  marksDefs: [];
+  style: string;
+}
+
 export interface articles {
   _id: string;
   title: string;
@@ -31,7 +39,7 @@ export interface articles {
   categoryName: string;
   slug: string;
   publishedAt: string;
-  body: object[];
+  body: articleBody[];
   barcaFixture?: string;
 }
 

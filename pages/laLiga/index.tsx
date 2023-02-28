@@ -14,10 +14,9 @@ interface leagueProps {
 }
 
 function index({ standings, fixtures, articles }: leagueProps) {
-  const truncate = (string: articles, n: number) => {
-    string = string.body[0].children[0].text;
+  const truncate = (text: string, n: number) => {
     // String might not be there hence ?
-    return string?.length > n ? string.substr(0, n - 1) + "..." : string;
+    return text?.length > n ? text.substr(0, n - 1) + "..." : text;
   };
   return (
     <Default>
@@ -54,7 +53,9 @@ function index({ standings, fixtures, articles }: leagueProps) {
                     {article.title}
                   </h1>
                 </Link>
-                <p className="text-sm">{truncate(article, 150)}</p>
+                <p className="text-sm">
+                  {truncate(article.body[0].children[0].text, 150)}
+                </p>
               </div>
             ))}
           </div>
