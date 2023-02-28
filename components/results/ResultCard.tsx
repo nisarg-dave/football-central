@@ -12,6 +12,7 @@ function ResultCard({ result }: ResultCardProps) {
         <img
           src={result.homeTeamLogo}
           className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24"
+          alt="Home Team Logo"
         />
         <h2 className="text-base sm:text-lg md:text-xl">
           {result.homeTeamGoals}
@@ -23,6 +24,7 @@ function ResultCard({ result }: ResultCardProps) {
         <img
           src={result.awayTeamLogo}
           className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24"
+          alt="Away Team Logo"
         />
       </div>
       <div className="flex items-center flex-col">

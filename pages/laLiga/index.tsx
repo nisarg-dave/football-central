@@ -43,12 +43,13 @@ function index({ standings, fixtures, articles }: leagueProps) {
               FCBK&#39;s Blog Latest Articles
             </h1>
             {articles.slice(0, 4).map((article) => (
-              <div className="p-2">
-                <img src={article.mainImage} className="w-full" />
-                <Link
-                  key={article._id}
-                  href={`laLiga/fcbks-blog/${article.slug}`}
-                >
+              <div className="p-2" key={article._id}>
+                <img
+                  src={article.mainImage}
+                  className="w-full"
+                  alt="Article Main Image"
+                />
+                <Link href={`laLiga/fcbks-blog/${article.slug}`}>
                   <h1 className="font-bold text-lg hover:underline cursor-pointer">
                     {article.title}
                   </h1>
