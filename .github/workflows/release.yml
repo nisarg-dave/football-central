@@ -24,6 +24,6 @@ jobs:
           tag_name: v0.1.0
           release_name: v0.1.0
           body: |
-            First release. Includes pages for the following leagues: Bundesliga, Champions League, La Liga, Ligue Un, Premier League and Serie A. Transfer News and FCBK's Blog still to come.
+            Second release. Added FCBK's Blog page. Blog on various topics on FC Barcelona.
           draft: false
           prerelease: false
