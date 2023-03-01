@@ -27,7 +27,10 @@ function Sidebar({ showSide, toggleSideNav }: sideProps) {
     >
       <div
         className="border-y border-yellow-300 py-2 px-2 cursor-pointer hover:bg-yellow-300 hover:text-black text-lg md:hidden"
-        onClick={() => router.push("/")}
+        onClick={() => {
+          toggleSideNav();
+          router.push("/");
+        }}
       >
         <div className="flex">Home</div>
       </div>
