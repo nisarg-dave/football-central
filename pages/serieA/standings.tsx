@@ -1,6 +1,7 @@
 import { GetServerSideProps } from "next";
 import React from "react";
 import LeagueTable from "../../components/table/LeagueTable";
+import WidgetLeagueTable from "../../components/widgets/WidgetLeagueTable";
 import Default from "../../layouts/Default";
 import { leagueTable } from "../../typings";
 
@@ -22,7 +23,12 @@ function standings({ standings }: standingsProps) {
             <h1 className="ml-4 text-2xl font-bold mt-7">League Table</h1>
           </div>
           <div className="flex flex-row px-4 mt-4">
-            <LeagueTable standings={standings} />
+            <div className="hidden md:flex w-full">
+              <LeagueTable standings={standings} />
+            </div>
+            <div className="md:hidden flex w-full">
+              <WidgetLeagueTable standings={standings} />
+            </div>
           </div>
         </div>
       </Default>

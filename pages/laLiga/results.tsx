@@ -16,12 +16,12 @@ function results({ results }: resultsProps) {
           <div className="flex ml-2">
             <img
               className="w-20 h-20 rounded-full mt-1"
-              src="https://pbs.twimg.com/profile_images/1269059076597694470/YUsGePSz_400x400.jpg"
+              src="https://pbs.twimg.com/profile_images/1610224492017508353/iDLuRHiC_400x400.jpg"
               alt="La Liga Logo"
             />
             <h1 className="ml-4 text-2xl font-bold mt-7">Results</h1>
           </div>
-          <div className="grid grid-cols-3 p-4 gap-4">
+          <div className="grid grid-cols-1 p-6 sm:grid-cols-2 sm:p-6 md:grid-cols-3 md:p-4 gap-4">
             {results.map((result) => (
               <ResultCard key={result.id} result={result} />
             ))}

@@ -31,7 +31,11 @@ function LeagueTable({ standings }: LeagueTableProps) {
                 </p>
               </td>
               <td className="flex">
-                <img src={standing.clubLogo} className="h-8 w-8" />
+                <img
+                  src={standing.clubLogo}
+                  className="h-8 w-8"
+                  alt="Club Logo"
+                />
                 <p className="text-bold text-base pt-1 pl-2">
                   {standing.clubName}
                 </p>

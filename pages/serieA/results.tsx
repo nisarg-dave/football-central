@@ -21,7 +21,7 @@ function results({ results }: resultsProps) {
             />
             <h1 className="ml-4 text-2xl font-bold mt-7">Results</h1>
           </div>
-          <div className="grid grid-cols-3 p-4 gap-4">
+          <div className="grid grid-cols-1 p-6 sm:grid-cols-2 sm:p-6 md:grid-cols-3 md:p-4 gap-4">
             {results.map((result) => (
               <ResultCard key={result.id} result={result} />
             ))}

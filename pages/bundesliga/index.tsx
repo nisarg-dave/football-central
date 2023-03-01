@@ -14,7 +14,7 @@ interface leagueProps {
 function index({ standings, fixtures }: leagueProps) {
   return (
     <Default>
-      <div className="flex flex-col bg-yellow-200">
+      <div className="flex flex-col">
         <div className="flex ml-2">
           <img
             className="w-20 h-20 rounded-full mt-1"
@@ -23,12 +23,12 @@ function index({ standings, fixtures }: leagueProps) {
           />
           <h1 className="ml-4 text-2xl font-bold mt-7">Bundesliga</h1>
         </div>
-        <div className="flex mt-3 mx-auto">
+        <div className="flex flex-col md:flex-row mt-3 mx-auto">
           {fixtures.map((fixture) => (
             <WidgetFixtureCard key={fixture.id} fixture={fixture} />
           ))}
         </div>
-        <div className="grid grid-cols-4 my-1 mx-auto">
+        <div className="md:grid md:grid-cols-4 md:my-1 md:mx-auto hidden">
           <div className="p-2 col-span-1">
             <WidgetLeagueTable standings={standings} />
           </div>
