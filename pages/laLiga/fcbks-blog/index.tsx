@@ -26,7 +26,7 @@ function Index({ articles }: fCBkHomeProps) {
       setActiveTab("All Posts");
       setDisplayedArticles(articles);
     }
-  }, [articles, setActiveTab, tabs]);
+  }, [articles, setActiveTab]);
 
   const handleSelectedTab = (selectedTab: Tab) => {
     setActiveTab(selectedTab.name);
