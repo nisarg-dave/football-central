@@ -7,11 +7,19 @@ interface DefaultProps {
 }
 
 function Default({ children }: DefaultProps) {
+  const [showSide, setShowSide] = useState(false);
+  const toggleSideNav = () => {
+    setShowSide(!showSide);
+  };
   return (
     <div className="layout min-h-screen">
-      <Navbar />
-      <Sidebar />
-      <main className="main">{children}</main>
+      <Navbar toggleSideNav={toggleSideNav} />
+      <Sidebar toggleSideNav={toggleSideNav} showSide={showSide} />
+      {showSide ? (
+        <main className="hidden md:main md:block">{children}</main>
+      ) : (
+        <main>{children}</main>
+      )}
     </div>
   );
 }

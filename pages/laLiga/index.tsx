@@ -14,10 +14,9 @@ interface leagueProps {
 }
 
 function index({ standings, fixtures, articles }: leagueProps) {
-  const truncate = (string: articles, n: number) => {
-    string = string.body[0].children[0].text;
+  const truncate = (text: string, n: number) => {
     // String might not be there hence ?
-    return string?.length > n ? string.substr(0, n - 1) + "..." : string;
+    return text?.length > n ? text.substr(0, n - 1) + "..." : text;
   };
   return (
     <Default>
@@ -30,12 +29,12 @@ function index({ standings, fixtures, articles }: leagueProps) {
           />
           <h1 className="ml-4 text-2xl font-bold mt-7">La Liga</h1>
         </div>
-        <div className="flex mt-3 mx-auto">
+        <div className="flex flex-col md:flex-row mt-3 mx-auto">
           {fixtures.map((fixture) => (
             <WidgetFixtureCard key={fixture.id} fixture={fixture} />
           ))}
         </div>
-        <div className="grid grid-cols-4 my-1 mx-auto">
+        <div className="md:grid md:grid-cols-4 md:my-1 md:mx-auto hidden">
           <div className="p-2 col-span-1">
             <WidgetLeagueTable standings={standings} />
           </div>
@@ -44,17 +43,20 @@ function index({ standings, fixtures, articles }: leagueProps) {
               FCBK&#39;s Blog Latest Articles
             </h1>
             {articles.slice(0, 4).map((article) => (
-              <div className="p-2">
-                <img src={article.mainImage} className="w-full" />
-                <Link
-                  key={article._id}
-                  href={`laLiga/fcbks-blog/${article.slug}`}
-                >
+              <div className="p-2" key={article._id}>
+                <img
+                  src={article.mainImage}
+                  className="w-full"
+                  alt="Article Main Image"
+                />
+                <Link href={`laLiga/fcbks-blog/${article.slug}`}>
                   <h1 className="font-bold text-lg hover:underline cursor-pointer">
                     {article.title}
                   </h1>
                 </Link>
-                <p className="text-sm">{truncate(article, 150)}</p>
+                <p className="text-sm">
+                  {truncate(article.body[0].children[0].text, 150)}
+                </p>
               </div>
             ))}
           </div>

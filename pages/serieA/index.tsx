@@ -7,12 +7,12 @@ import { leagueTable, fixtures } from "../../typings";
 import WidgetLeagueTable from "../../components/widgets/WidgetLeagueTable";
 import WidgetFixtureCard from "../../components/widgets/WidgetFixtureCard";
 
-interface laLigaProps {
+interface leagueProps {
   standings: leagueTable[];
   fixtures: fixtures[];
 }
 
-function index({ standings, fixtures }: laLigaProps) {
+function index({ standings, fixtures }: leagueProps) {
   return (
     <Default>
       <div className="flex flex-col">
@@ -24,12 +24,12 @@ function index({ standings, fixtures }: laLigaProps) {
           />
           <h1 className="ml-4 text-2xl font-bold mt-7">Serie A</h1>
         </div>
-        <div className="flex mt-3 mx-auto">
+        <div className="flex flex-col md:flex-row mt-3 mx-auto">
           {fixtures.map((fixture) => (
             <WidgetFixtureCard key={fixture.id} fixture={fixture} />
           ))}
         </div>
-        <div className="grid grid-cols-4 my-1 mx-auto">
+        <div className="md:grid md:grid-cols-4 md:my-1 md:mx-auto hidden">
           <div className="p-2 col-span-1">
             <WidgetLeagueTable standings={standings} />
           </div>

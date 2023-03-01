@@ -23,6 +23,7 @@ function WidgetLeagueTable({ standings }: WidgetLeagueTableProps) {
                 <img
                   src={standing.clubLogo}
                   className="h-7 w-7 ml-2 rounded-full"
+                  alt="Club Logo"
                 />
               </td>
               <td>
