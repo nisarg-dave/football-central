@@ -5,12 +5,15 @@ on:
     # Sequence of patterns matched against refs/tags
     tags:
       - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
+    types:
+      - closed
 
 name: Create Release
 
 jobs:
   build:
     name: Create Release
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
