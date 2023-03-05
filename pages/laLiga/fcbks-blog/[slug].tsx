@@ -46,7 +46,7 @@ function Article({ article, stats }: postProps) {
               }}
             />
           </div>
-          {article.barcaFixture ? <WidgetStatCard stats={stats} /> : <></>}
+          {article?.barcaFixture ? <WidgetStatCard stats={stats} /> : <></>}
         </article>
       </div>
     </Default>
@@ -102,7 +102,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     slug: params?.slug,
   });
 
-  if (article.barcaFixture) {
+  if (article?.barcaFixture) {
     const fixtureId = parseInt(article?.barcaFixture?.split(",")[2]);
     try {
       const stats = await getBarcaStats(fixtureId);
