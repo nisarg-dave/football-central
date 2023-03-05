@@ -6,6 +6,9 @@ import { leagueTable, fixtures, articles } from "../../typings";
 import WidgetLeagueTable from "../../components/widgets/WidgetLeagueTable";
 import WidgetFixtureCard from "../../components/widgets/WidgetFixtureCard";
 import Link from "next/link";
+import getLaLigaStandings from "../../lib/football/laLiga/getStandings";
+import getLaLigaFixtures from "../../lib/football/laLiga/getFixtures";
+import getArticles from "../../lib/articles/getArticles";
 
 interface leagueProps {
   standings: leagueTable[];
@@ -76,18 +79,10 @@ function index({ standings, fixtures, articles }: leagueProps) {
 export default index;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const standingsResponse = await fetch(
-    `${process.env.BASE_URL}/api/football/laLiga/getStandings`
-  );
-  const standings = await standingsResponse.json();
-  const fixturesResponse = await fetch(
-    `${process.env.BASE_URL}/api/football/laLiga/getFixtures`
-  );
-  const fixtures = await fixturesResponse.json();
-  const articlesResponse = await fetch(
-    `${process.env.BASE_URL}/api/articles/getArticles`
-  );
-  const articles = await articlesResponse.json();
+  const standings = await getLaLigaStandings();
+  const fixtures = await getLaLigaFixtures();
+
+  const articles = await getArticles();
   return {
     props: {
       standings,

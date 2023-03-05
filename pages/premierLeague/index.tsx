@@ -5,6 +5,8 @@ import type { GetServerSideProps } from "next";
 import { leagueTable, fixtures } from "../../typings";
 import WidgetLeagueTable from "../../components/widgets/WidgetLeagueTable";
 import WidgetFixtureCard from "../../components/widgets/WidgetFixtureCard";
+import getPremFixtures from "../../lib/football/premierLeague/getFixtures";
+import getPremStandings from "../../lib/football/premierLeague/getStandings";
 
 interface leagueProps {
   standings: leagueTable[];
@@ -55,14 +57,9 @@ function index({ standings, fixtures }: leagueProps) {
 export default index;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const standingsResponse = await fetch(
-    `${process.env.BASE_URL}/api/football/premierLeague/getStandings`
-  );
-  const standings = await standingsResponse.json();
-  const fixturesResponse = await fetch(
-    `${process.env.BASE_URL}/api/football/premierLeague/getFixtures`
-  );
-  const fixtures = await fixturesResponse.json();
+  const standings = await getPremStandings();
+  const fixtures = await getPremFixtures();
+
   return {
     props: {
       standings,

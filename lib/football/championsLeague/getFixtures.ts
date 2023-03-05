@@ -1,20 +1,14 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from "next";
-import { fixtures } from "../../../../typings";
-import footballRequests from "../../../../utils/footballRequests";
+import footballRequests from "../../../utils/footballRequests";
 
 const dateTimeConvert = (dateTime: string) => {
   const dt = new Date(dateTime);
   return dt.toDateString();
 };
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<fixtures[]>
-) {
+export default async function getCLFixtures() {
   const response = await fetch(
     `${process.env.SPORTS_BASE_URL}` +
-      `${footballRequests.serieARequests.fetchResults}`,
+      `${footballRequests.championsLeagueRequests.fetchFixtures}`,
     {
       headers: {
         "x-rapidapi-host": `${process.env.SPORTS_HOST}`,
@@ -24,7 +18,7 @@ export default async function handler(
   );
 
   const data = await response.json();
-  const resultsArr = data.response.map((obj: any) => {
+  const fixturesArr = data.response.map((obj: any) => {
     const id = obj?.fixture?.id;
     const date = dateTimeConvert(obj?.fixture?.date);
     const location = obj?.fixture?.venue?.name;
@@ -44,5 +38,5 @@ export default async function handler(
       awayTeamGoals,
     };
   });
-  res.status(200).json(resultsArr);
+  return fixturesArr;
 }
