@@ -104,20 +104,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   if (article.barcaFixture) {
     const fixtureId = parseInt(article?.barcaFixture?.split(",")[2]);
-    try {
-      const stats = await getBarcaStats(fixtureId);
 
-      return {
-        props: {
-          article,
-          stats,
-        },
-      };
-    } catch {
-      return {
-        notFound: true,
-      };
-    }
+    const stats = await getBarcaStats(fixtureId);
+
+    return {
+      props: {
+        article,
+        stats,
+      },
+    };
   }
   return {
     props: {
