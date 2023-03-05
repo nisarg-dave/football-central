@@ -1,20 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from "next";
-import { statistics } from "../../../../typings";
-import footballRequests from "../../../../utils/footballRequests";
 
-const dateTimeConvert = (dateTime: string) => {
-  const dt = new Date(dateTime);
-  return dt.toDateString();
-};
+import footballRequests from "../utils/footballRequests";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<statistics>
-) {
-  const query = req.query;
-  const { fixture: fixtureId } = query;
-
+export async function getBarcaStats(fixtureId: number) {
   const response = await fetch(
     `${process.env.SPORTS_BASE_URL}` +
       `${footballRequests.laLigaRequests.fetchStats}` +
@@ -30,8 +18,8 @@ export default async function handler(
   const data = await response.json();
 
   const { teams } = data.response[0];
-  const homeTeam = teams.home.name;
-  const awayTeam = teams.away.name;
+  const homeTeam = teams?.home.name;
+  const awayTeam = teams?.away.name;
 
   const { statistics } = data.response[0];
   const homeTeamTotalShots = statistics[0]?.statistics[2]?.value;
@@ -80,5 +68,5 @@ export default async function handler(
     awayCorners,
   };
 
-  res.status(200).json(stats);
+  return stats;
 }

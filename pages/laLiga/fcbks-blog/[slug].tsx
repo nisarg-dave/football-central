@@ -4,6 +4,9 @@ import Default from "../../../layouts/Default";
 import { articles, statistics } from "../../../typings";
 import PortableText from "react-portable-text";
 import WidgetStatCard from "../../../components/widgets/WidgetStatCard";
+import { groq } from "next-sanity";
+import { sanityClient } from "../../../sanity";
+import { getBarcaStats } from "../../../lib/getBarcaStats";
 
 interface postProps {
   article: articles;
@@ -53,10 +56,19 @@ function Article({ article, stats }: postProps) {
 export default Article;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const articlesResponse = await fetch(
-    `${process.env.BASE_URL}/api/articles/getArticles`
-  );
-  const articles = await articlesResponse.json();
+  const articlesQuery = groq`*[_type=="article"]{
+  _id,
+  title,
+  "authorName": author->name,
+  mainImage,
+  slug,
+  "categoryName": category[0]->categoryName,
+  publishedAt,
+  body,
+  "barcaFixture": barcaFixture[0]->fixture
+} | order(publishedAt desc)`;
+
+  const articles = await sanityClient.fetch(articlesQuery);
   const paths = articles.map((article: articles) => {
     return {
       params: {
@@ -73,19 +85,28 @@ export const getStaticPaths: GetStaticPaths = async () => {
 // Destructure context to get params which is from above
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   // Can then replace $slug in query with params.slug
-  const slugResponse = await fetch(
-    `${process.env.BASE_URL}/api/articles/getSlugs?slug=${params?.slug}`
-  );
-  const article = await slugResponse.json();
+
+  const slugQuery = groq`*[_type=="article" && slug == $slug][0]{
+  _id,
+  title,
+  "authorName": author->name,
+  mainImage,
+  slug,
+  "categoryName": category[0]->categoryName,
+  publishedAt,
+  body,
+  "barcaFixture": barcaFixture[0]->fixture
+  } `;
+
+  const article = await sanityClient.fetch(slugQuery, {
+    slug: params?.slug,
+  });
 
   if (article.barcaFixture) {
     const fixtureId = parseInt(article?.barcaFixture?.split(",")[2]);
     try {
-      const statsResponse = await fetch(
-        `${process.env.BASE_URL}/api/football/laLiga/getBarcaStats?fixture=${fixtureId}`
-      );
+      const stats = await getBarcaStats(fixtureId);
 
-      const stats = await statsResponse.json();
       return {
         props: {
           article,
