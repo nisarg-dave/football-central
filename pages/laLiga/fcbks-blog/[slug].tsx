@@ -18,18 +18,18 @@ function Article({ article, stats }: postProps) {
     <Default>
       <div className="flex flex-col h-full">
         <article className="max-w-3xl mx-auto p-5 h-[50rem] scrollbar-hide overflow-y-scroll">
-          <h1 className="text-3xl mt-10 mb-3">{article.title}</h1>
+          <h1 className="text-3xl mt-10 mb-3">{article?.title}</h1>
           <p className="font-extralight text-sm">
-            Article by {article.authorName}
+            Article by {article?.authorName}
           </p>
           <p className="font-extralight text-sm">
-            {new Date(article.publishedAt).toDateString()}
+            {new Date(article?.publishedAt).toDateString()}
           </p>
           <div className="mt-3 py-1">
             <PortableText
               dataset={process.env.NEXT_PUBLIC_SANITY_DATASET || "production"}
               projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
-              content={article.body}
+              content={article?.body}
               serializers={{
                 h1: (props: any) => (
                   <h1 className="text-xl font-bold my-5" {...props} />
@@ -104,15 +104,20 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   if (article.barcaFixture) {
     const fixtureId = parseInt(article?.barcaFixture?.split(",")[2]);
+    try {
+      const stats = await getBarcaStats(fixtureId);
 
-    const stats = await getBarcaStats(fixtureId);
-
-    return {
-      props: {
-        article,
-        stats,
-      },
-    };
+      return {
+        props: {
+          article,
+          stats,
+        },
+      };
+    } catch {
+      return {
+        notFound: true,
+      };
+    }
   }
   return {
     props: {
