@@ -6,7 +6,7 @@ import PortableText from "react-portable-text";
 import WidgetStatCard from "../../../components/widgets/WidgetStatCard";
 import { groq } from "next-sanity";
 import { sanityClient } from "../../../sanity";
-import { getBarcaStats } from "../../../lib/getBarcaStats";
+import getBarcaStats from "../../../lib/football/laLiga/getBarcaStats";
 import { useRouter } from "next/router";
 
 interface postProps {

@@ -1,17 +1,11 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from "next";
-import { fixtures } from "../../../../typings";
-import footballRequests from "../../../../utils/footballRequests";
+import footballRequests from "../../../utils/footballRequests";
 
 const dateTimeConvert = (dateTime: string) => {
   const dt = new Date(dateTime);
   return dt.toDateString();
 };
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<fixtures[]>
-) {
+export default async function getSerieAFixtures() {
   const response = await fetch(
     `${process.env.SPORTS_BASE_URL}` +
       `${footballRequests.serieARequests.fetchFixtures}`,
@@ -44,5 +38,5 @@ export default async function handler(
       awayTeamGoals,
     };
   });
-  res.status(200).json(fixturesArr);
+  return fixturesArr;
 }

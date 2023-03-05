@@ -1,8 +1,6 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import footballRequests from "../../../utils/footballRequests";
 
-import footballRequests from "../utils/footballRequests";
-
-export async function getBarcaStats(fixtureId: number) {
+export default async function getBarcaStats(fixtureId: number) {
   const response = await fetch(
     `${process.env.SPORTS_BASE_URL}` +
       `${footballRequests.laLigaRequests.fetchStats}` +

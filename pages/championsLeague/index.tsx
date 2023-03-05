@@ -2,16 +2,15 @@ import React from "react";
 import Default from "../../layouts/Default";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 import type { GetServerSideProps } from "next";
-import { leagueTable, fixtures } from "../../typings";
-import WidgetLeagueTable from "../../components/widgets/WidgetLeagueTable";
+import { fixtures } from "../../typings";
 import WidgetFixtureCard from "../../components/widgets/WidgetFixtureCard";
+import getCLFixtures from "../../lib/football/championsLeague/getFixtures";
 
 interface leagueProps {
-  standings: leagueTable[];
   fixtures: fixtures[];
 }
 
-function index({ standings, fixtures }: leagueProps) {
+function index({ fixtures }: leagueProps) {
   return (
     <Default>
       <div className="flex flex-col">
@@ -59,17 +58,9 @@ function index({ standings, fixtures }: leagueProps) {
 export default index;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const standingsResponse = await fetch(
-    `${process.env.BASE_URL}/api/football/championsLeague/getStandings`
-  );
-  const standings = await standingsResponse.json();
-  const fixturesResponse = await fetch(
-    `${process.env.BASE_URL}/api/football/championsLeague/getFixtures`
-  );
-  const fixtures = await fixturesResponse.json();
+  const fixtures = await getCLFixtures();
   return {
     props: {
-      standings,
       fixtures,
     },
   };

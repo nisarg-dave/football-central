@@ -1,15 +1,9 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from "next";
-import { leagueTable } from "../../../../typings";
-import footballRequests from "../../../../utils/footballRequests";
+import footballRequests from "../../../utils/footballRequests";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<leagueTable[]>
-) {
+export default async function getPremStandings() {
   const response = await fetch(
     `${process.env.SPORTS_BASE_URL}` +
-      `${footballRequests.bundesligaRequests.fetchStandings}`,
+      `${footballRequests.premierLeagueRequests.fetchStandings}`,
     {
       headers: {
         "x-rapidapi-host": `${process.env.SPORTS_HOST}`,
@@ -45,5 +39,5 @@ export default async function handler(
       points,
     };
   });
-  res.status(200).json(leagueTableArr);
+  return leagueTableArr;
 }

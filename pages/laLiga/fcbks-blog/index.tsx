@@ -5,6 +5,7 @@ import Default from "../../../layouts/Default";
 import { articles, Tab } from "../../../typings";
 import Tabs from "../../../components/widgets/Tabs";
 import { useTabs, useSetActiveTab } from "../../../store/store";
+import getArticles from "../../../lib/articles/getArticles";
 
 interface fCBkHomeProps {
   articles: articles[];
@@ -72,10 +73,7 @@ function Index({ articles }: fCBkHomeProps) {
 export default Index;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const articlesResponse = await fetch(
-    `${process.env.BASE_URL}/api/articles/getArticles`
-  );
-  const articles = await articlesResponse.json();
+  const articles = await getArticles();
   return {
     props: {
       articles,
