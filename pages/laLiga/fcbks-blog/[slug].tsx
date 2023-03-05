@@ -7,6 +7,7 @@ import WidgetStatCard from "../../../components/widgets/WidgetStatCard";
 import { groq } from "next-sanity";
 import { sanityClient } from "../../../sanity";
 import { getBarcaStats } from "../../../lib/getBarcaStats";
+import { useRouter } from "next/router";
 
 interface postProps {
   article: articles;
@@ -14,22 +15,30 @@ interface postProps {
 }
 
 function Article({ article, stats }: postProps) {
+  const router = useRouter();
+  if (router.isFallback) {
+    return (
+      <Default>
+        <h1>Loading...</h1>
+      </Default>
+    );
+  }
   return (
     <Default>
       <div className="flex flex-col h-full">
         <article className="max-w-3xl mx-auto p-5 h-[50rem] scrollbar-hide overflow-y-scroll">
-          <h1 className="text-3xl mt-10 mb-3">{article?.title}</h1>
+          <h1 className="text-3xl mt-10 mb-3">{article.title}</h1>
           <p className="font-extralight text-sm">
-            Article by {article?.authorName}
+            Article by {article.authorName}
           </p>
           <p className="font-extralight text-sm">
-            {new Date(article?.publishedAt).toDateString()}
+            {new Date(article.publishedAt).toDateString()}
           </p>
           <div className="mt-3 py-1">
             <PortableText
               dataset={process.env.NEXT_PUBLIC_SANITY_DATASET || "production"}
               projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
-              content={article?.body}
+              content={article.body}
               serializers={{
                 h1: (props: any) => (
                   <h1 className="text-xl font-bold my-5" {...props} />
@@ -46,7 +55,7 @@ function Article({ article, stats }: postProps) {
               }}
             />
           </div>
-          {article?.barcaFixture ? <WidgetStatCard stats={stats} /> : <></>}
+          {article.barcaFixture ? <WidgetStatCard stats={stats} /> : <></>}
         </article>
       </div>
     </Default>

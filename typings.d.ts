@@ -26,7 +26,7 @@ export interface fixtures {
 interface articleBody {
   _key: string;
   _type: string;
-  children: { _key: string; _type: strin; marks: string[]; text: string }[];
+  children: { _key: string; _type: string; marks: string[]; text: string }[];
   marksDefs: [];
   style: string;
 }
