@@ -16,7 +16,7 @@ function WidgetStatCard({ fixtureId }: StatsCardProps) {
       setStats(statsRes);
     };
     fetchData();
-  }, [fixtureId, getBarcaStats]);
+  }, [fixtureId]);
   return (
     <div className="bg-slate-300 flex flex-col py-2 px-4 mt-2">
       <div className="flex justify-between my-2">
