@@ -1,20 +1,18 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
 import Default from "../../../layouts/Default";
-import { articles, statistics } from "../../../typings";
+import { articles } from "../../../typings";
 import PortableText from "react-portable-text";
 import WidgetStatCard from "../../../components/widgets/WidgetStatCard";
 import { groq } from "next-sanity";
 import { sanityClient } from "../../../sanity";
-import getBarcaStats from "../../../lib/football/laLiga/getBarcaStats";
 import { useRouter } from "next/router";
 
 interface postProps {
   article: articles;
-  stats: statistics;
 }
 
-function Article({ article, stats }: postProps) {
+function Article({ article }: postProps) {
   const router = useRouter();
   if (router.isFallback) {
     return (
@@ -55,7 +53,11 @@ function Article({ article, stats }: postProps) {
               }}
             />
           </div>
-          {article.barcaFixture ? <WidgetStatCard stats={stats} /> : <></>}
+          {article.barcaFixture ? (
+            <WidgetStatCard fixtureId={article.barcaFixture} />
+          ) : (
+            <></>
+          )}
         </article>
       </div>
     </Default>
@@ -111,23 +113,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     slug: params?.slug,
   });
 
-  if (article?.barcaFixture) {
-    const fixtureId = parseInt(article?.barcaFixture?.split(",")[2]);
-    try {
-      const stats = await getBarcaStats(fixtureId);
-
-      return {
-        props: {
-          article,
-          stats,
-        },
-      };
-    } catch {
-      return {
-        notFound: true,
-      };
-    }
-  }
   return {
     props: {
       article,
