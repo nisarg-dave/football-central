@@ -24,9 +24,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: v0.2.2
-          release_name: v0.2.2
+          tag_name: v0.2.3
+          release_name: v0.2.3
           body: |
-            Fixed major bugs and added FCBK's blog back.
+            Bug Fix: client side rendered stats for match review articles in FCBK's Blog due to issues with SSG.
           draft: false
           prerelease: false
