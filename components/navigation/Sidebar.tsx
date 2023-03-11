@@ -323,6 +323,15 @@ function Sidebar({ showSide, toggleSideNav }: sideProps) {
             >
               David Ornstein
             </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => {
+                toggleSideNav();
+                router.push("/transferNews/manchesterCity");
+              }}
+            >
+              Manchester City
+            </p>
           </div>
         ) : (
           <></>

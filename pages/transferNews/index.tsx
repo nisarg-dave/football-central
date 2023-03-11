@@ -20,6 +20,12 @@ function index() {
           alt="David Ornstein Logo"
           onClick={() => router.push("/transferNews/davidOrnstein")}
         />
+        <img
+          className="w-40 h-40 md:w-52 md:h-52 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
+          src="https://pbs.twimg.com/profile_images/1344966114367991813/PVlXJ6Qg_400x400.jpg"
+          alt="City Xtra Logo"
+          onClick={() => router.push("/transferNews/manchesterCity")}
+        />
       </div>
     </Default>
   );
