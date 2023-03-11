@@ -332,6 +332,15 @@ function Sidebar({ showSide, toggleSideNav }: sideProps) {
             >
               Manchester City
             </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => {
+                toggleSideNav();
+                router.push("/transferNews/fcBarcelona");
+              }}
+            >
+              FC Barcelona
+            </p>
           </div>
         ) : (
           <></>

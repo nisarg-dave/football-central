@@ -26,6 +26,12 @@ function index() {
           alt="City Xtra Logo"
           onClick={() => router.push("/transferNews/manchesterCity")}
         />
+        <img
+          className="w-40 h-40 md:w-52 md:h-52 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
+          src="https://pbs.twimg.com/profile_images/1593298279227445250/HCfY-n7o_400x400.jpg"
+          alt="Reshad Logo"
+          onClick={() => router.push("/transferNews/fcBarcelona")}
+        />
       </div>
     </Default>
   );
