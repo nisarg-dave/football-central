@@ -2,6 +2,7 @@ import { GetServerSideProps } from "next";
 import React from "react";
 import ResultCard from "../../components/results/ResultCard";
 import Default from "../../layouts/Default";
+import getCLResults from "../../lib/football/championsLeague/getResults";
 import { fixtures } from "../../typings";
 
 interface resultsProps {
@@ -35,10 +36,7 @@ function results({ results }: resultsProps) {
 export default results;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const resultsResponse = await fetch(
-    `${process.env.BASE_URL}/api/football/championsLeague/getResults`
-  );
-  const results = await resultsResponse.json();
+  const results = await getCLResults();
   return {
     props: {
       results,

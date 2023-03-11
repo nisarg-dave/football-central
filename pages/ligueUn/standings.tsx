@@ -3,6 +3,7 @@ import React from "react";
 import LeagueTable from "../../components/table/LeagueTable";
 import WidgetLeagueTable from "../../components/widgets/WidgetLeagueTable";
 import Default from "../../layouts/Default";
+import getLigueUnStandings from "../../lib/football/ligueUn/getStandings";
 import { leagueTable } from "../../typings";
 
 interface standingsProps {
@@ -39,10 +40,7 @@ function standings({ standings }: standingsProps) {
 export default standings;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const standingsResponse = await fetch(
-    `${process.env.BASE_URL}/api/football/ligueUn/getStandings`
-  );
-  const standings = await standingsResponse.json();
+  const standings = await getLigueUnStandings();
   return {
     props: {
       standings,

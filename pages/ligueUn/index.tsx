@@ -1,11 +1,12 @@
 import React from "react";
 import Default from "../../layouts/Default";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
-import Image from "next/image";
 import type { GetServerSideProps } from "next";
 import { leagueTable, fixtures } from "../../typings";
 import WidgetLeagueTable from "../../components/widgets/WidgetLeagueTable";
 import WidgetFixtureCard from "../../components/widgets/WidgetFixtureCard";
+import getLigueUnFixtures from "../../lib/football/ligueUn/getFixtures";
+import getLigueUnStandings from "../../lib/football/ligueUn/getStandings";
 
 interface leagueProps {
   standings: leagueTable[];
@@ -56,14 +57,9 @@ function index({ standings, fixtures }: leagueProps) {
 export default index;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const standingsResponse = await fetch(
-    `${process.env.BASE_URL}/api/football/ligueUn/getStandings`
-  );
-  const standings = await standingsResponse.json();
-  const fixturesResponse = await fetch(
-    `${process.env.BASE_URL}/api/football/ligueUn/getFixtures`
-  );
-  const fixtures = await fixturesResponse.json();
+  const standings = await getLigueUnStandings();
+  const fixtures = await getLigueUnFixtures();
+
   return {
     props: {
       standings,
