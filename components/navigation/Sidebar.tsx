@@ -305,6 +305,15 @@ function Sidebar({ showSide, toggleSideNav }: sideProps) {
             >
               Home
             </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => {
+                toggleSideNav();
+                router.push("/transferNews/fabrizioRomano");
+              }}
+            >
+              Fabrizio Romano
+            </p>
           </div>
         ) : (
           <></>
