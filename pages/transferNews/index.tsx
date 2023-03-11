@@ -14,6 +14,12 @@ function index() {
           alt="Fabrizio Romano Logo"
           onClick={() => router.push("/transferNews/fabrizioRomano")}
         />
+        <img
+          className="w-40 h-40 md:w-52 md:h-52 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
+          src="https://pbs.twimg.com/profile_images/1178558529105530880/Qvy-hv3O_400x400.jpg"
+          alt="David Ornstein Logo"
+          onClick={() => router.push("/transferNews/davidOrnstein")}
+        />
       </div>
     </Default>
   );

@@ -314,6 +314,15 @@ function Sidebar({ showSide, toggleSideNav }: sideProps) {
             >
               Fabrizio Romano
             </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => {
+                toggleSideNav();
+                router.push("/transferNews/davidOrnstein");
+              }}
+            >
+              David Ornstein
+            </p>
           </div>
         ) : (
           <></>
