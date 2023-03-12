@@ -305,6 +305,87 @@ function Sidebar({ showSide, toggleSideNav }: sideProps) {
             >
               Home
             </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => {
+                toggleSideNav();
+                router.push("/transferNews/fabrizioRomano");
+              }}
+            >
+              Fabrizio Romano
+            </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => {
+                toggleSideNav();
+                router.push("/transferNews/davidOrnstein");
+              }}
+            >
+              David Ornstein
+            </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => {
+                toggleSideNav();
+                router.push("/transferNews/manchesterCity");
+              }}
+            >
+              Manchester City
+            </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => {
+                toggleSideNav();
+                router.push("/transferNews/liverpoolFC");
+              }}
+            >
+              Liverpool FC
+            </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => {
+                toggleSideNav();
+                router.push("/transferNews/manUnited");
+              }}
+            >
+              Man United
+            </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => {
+                toggleSideNav();
+                router.push("/transferNews/fcBarcelona");
+              }}
+            >
+              FC Barcelona
+            </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => {
+                toggleSideNav();
+                router.push("/transferNews/realMadrid");
+              }}
+            >
+              Real Madrid
+            </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => {
+                toggleSideNav();
+                router.push("/transferNews/germanClubs");
+              }}
+            >
+              German Clubs
+            </p>
+            <p
+              className="pl-2 hover:bg-slate-300"
+              onClick={() => {
+                toggleSideNav();
+                router.push("/transferNews/italianClubs");
+              }}
+            >
+              Italian Clubs
+            </p>
           </div>
         ) : (
           <></>

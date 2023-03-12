@@ -72,3 +72,8 @@ export interface Tab {
   name: string;
   active: boolean;
 }
+
+export interface Tweet {
+  id: string;
+  text: string;
+}
