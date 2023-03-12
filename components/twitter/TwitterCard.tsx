@@ -10,7 +10,7 @@ function TwitterCard({ tweet }: TwitterCardProps) {
     return text?.length > n ? text.substr(0, n - 1) + "..." : text;
   };
   return (
-    <div className="bg-slate-300 w-full p-5 h-48 sm:h-56 md:h-64 mx-auto">
+    <div className="bg-slate-300 w-full p-5 mx-auto">
       <p>{truncate(tweet.text, 300)}</p>
     </div>
   );
