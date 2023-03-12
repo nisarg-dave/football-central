@@ -74,5 +74,6 @@ export interface Tab {
 }
 
 export interface Tweet {
+  id: string;
   text: string;
 }

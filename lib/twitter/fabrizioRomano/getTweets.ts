@@ -16,6 +16,7 @@ export default async function getFabsTweets() {
 
   const tweetsArr = tweetsData.data.reduce((arr: any, tweetData: any) => {
     arr.push({
+      id: tweetData.id,
       text: tweetData.text,
     });
     return arr;
