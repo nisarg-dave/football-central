@@ -34,8 +34,8 @@ function Index() {
         />
         <img
           className="w-40 h-40 md:w-52 md:h-52 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
-          src="https://pbs.twimg.com/profile_images/1113850750646534145/ldCk6znT_400x400.jpg"
-          alt="United Report Logo"
+          src="https://pbs.twimg.com/profile_images/1242604348238151681/6xZ3jWQ2_400x400.jpg"
+          alt="United Zone Logo"
           onClick={() => router.push("/transferNews/manUnited")}
         />
         <img

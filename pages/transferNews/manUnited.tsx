@@ -16,11 +16,11 @@ function manUnited({ tweets }: UnitedProps) {
         <div className="flex ml-2">
           <img
             className="w-20 h-20 rounded-full mt-1"
-            src="https://pbs.twimg.com/profile_images/1113850750646534145/ldCk6znT_400x400.jpg"
-            alt="United Report Logo"
+            src="https://pbs.twimg.com/profile_images/1242604348238151681/6xZ3jWQ2_400x400.jpg"
+            alt="United Zone Logo"
           />
           <h1 className="ml-4 text-2xl font-bold mt-7">
-            United Report (Manchester United)
+            United Zone (Manchester United)
           </h1>
         </div>
         <div className="grid grid-cols-1 p-6 sm:grid-cols-2 sm:p-6 md:grid-cols-3 md:p-4 gap-4">
