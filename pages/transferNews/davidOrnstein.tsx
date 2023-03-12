@@ -23,7 +23,7 @@ function davidOrnstein({ tweets }: DavidProps) {
         </div>
         <div className="grid grid-cols-1 p-6 sm:grid-cols-2 sm:p-6 md:grid-cols-3 md:p-4 gap-4">
           {tweets.map((tweet) => (
-            <TwitterCard tweet={tweet} />
+            <TwitterCard key={tweet.id} tweet={tweet} />
           ))}
         </div>
       </div>
