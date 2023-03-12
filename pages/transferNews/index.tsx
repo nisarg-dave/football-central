@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import Default from "../../layouts/Default";
 
-function index() {
+function Index() {
   const router = useRouter();
 
   return (
@@ -37,4 +37,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;
