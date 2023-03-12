@@ -20,7 +20,9 @@ function fcBarcelona({ tweets }: BarcaProps) {
             src="https://pbs.twimg.com/profile_images/1593298279227445250/HCfY-n7o_400x400.jpg"
             alt="Reshad Logo"
           />
-          <h1 className="ml-4 text-2xl font-bold mt-7">Reshad Rahman</h1>
+          <h1 className="ml-4 text-2xl font-bold mt-7">
+            Reshad Rahman (FC Barcelona)
+          </h1>
         </div>
         <div className="grid grid-cols-1 p-6 sm:grid-cols-2 sm:p-6 md:grid-cols-3 md:p-4 gap-4">
           {tweets.map((tweet) => (

@@ -28,9 +28,39 @@ function Index() {
         />
         <img
           className="w-40 h-40 md:w-52 md:h-52 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
+          src="https://pbs.twimg.com/profile_images/1210152923499499520/FEp0wDij_400x400.jpg"
+          alt="James Pearce Logo"
+          onClick={() => router.push("/transferNews/liverpoolFC")}
+        />
+        <img
+          className="w-40 h-40 md:w-52 md:h-52 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
+          src="https://pbs.twimg.com/profile_images/1113850750646534145/ldCk6znT_400x400.jpg"
+          alt="United Report Logo"
+          onClick={() => router.push("/transferNews/manUnited")}
+        />
+        <img
+          className="w-40 h-40 md:w-52 md:h-52 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
           src="https://pbs.twimg.com/profile_images/1593298279227445250/HCfY-n7o_400x400.jpg"
           alt="Reshad Logo"
           onClick={() => router.push("/transferNews/fcBarcelona")}
+        />
+        <img
+          className="w-40 h-40 md:w-52 md:h-52 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
+          src="https://pbs.twimg.com/profile_images/1543662848332677121/QHa-iUwo_400x400.jpg"
+          alt="Madrid Xtra Logo"
+          onClick={() => router.push("/transferNews/realMadrid")}
+        />
+        <img
+          className="w-40 h-40 md:w-52 md:h-52 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
+          src="https://pbs.twimg.com/profile_images/1367085330327830528/dTCWjSc0_400x400.jpg"
+          alt="Christian Falk Logo"
+          onClick={() => router.push("/transferNews/germanClubs")}
+        />
+        <img
+          className="w-40 h-40 md:w-52 md:h-52 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
+          src="https://pbs.twimg.com/profile_images/1578668336648429572/LrI0BYJ2_400x400.jpg"
+          alt="Di Marzio Logo"
+          onClick={() => router.push("/transferNews/italianClubs")}
         />
       </div>
     </Default>

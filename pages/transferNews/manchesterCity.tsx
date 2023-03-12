@@ -19,7 +19,9 @@ function manchesterCity({ tweets }: CityProps) {
             src="https://pbs.twimg.com/profile_images/1344966114367991813/PVlXJ6Qg_400x400.jpg"
             alt="City Xtra Logo"
           />
-          <h1 className="ml-4 text-2xl font-bold mt-7">City Xtra</h1>
+          <h1 className="ml-4 text-2xl font-bold mt-7">
+            City Xtra (Manchester City)
+          </h1>
         </div>
         <div className="grid grid-cols-1 p-6 sm:grid-cols-2 sm:p-6 md:grid-cols-3 md:p-4 gap-4">
           {tweets.map((tweet) => (
