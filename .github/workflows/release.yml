@@ -24,9 +24,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: v0.3.0
-          release_name: v0.3.0
+          tag_name: v0.3.1
+          release_name: v0.3.1
           body: |
-            New Feature. Football Central now pulls tweets about transfers and other news from Twitter accounts of various journalists and fans.
+            Added Open Graph meta tags to FCBK's Blog articles to control how the articles are displayed when shared on social media.
           draft: false
           prerelease: false
