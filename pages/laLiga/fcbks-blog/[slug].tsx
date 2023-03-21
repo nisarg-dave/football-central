@@ -7,6 +7,7 @@ import WidgetStatCard from "../../../components/widgets/WidgetStatCard";
 import { groq } from "next-sanity";
 import { sanityClient } from "../../../sanity";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 interface postProps {
   article: articles;
@@ -14,6 +15,10 @@ interface postProps {
 
 function Article({ article }: postProps) {
   const router = useRouter();
+  const truncate = (text: string, n: number) => {
+    // String might not be there hence ?
+    return text?.length > n ? text.substr(0, n - 1) + "..." : text;
+  };
   if (router.isFallback) {
     return (
       <Default>
@@ -23,6 +28,25 @@ function Article({ article }: postProps) {
   }
   return (
     <Default>
+      <Head>
+        <meta
+          property="og:url"
+          content={`https://football-central.vercel.app/laLiga/fcbks-blog/${article.slug}`}
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={article.title} />
+        <meta
+          property="og:description"
+          content={truncate(article.body[0].children[0].text, 150)}
+        />
+        <meta property="og:image" content={article.mainImage} />
+        <meta property="og:image:width" content="644" />
+        <meta property="og:image:height" content="362" />
+        <meta
+          property="og:site_name"
+          content="Football Central - FCBK's Blog"
+        />
+      </Head>
       <div className="flex flex-col h-full">
         <article className="max-w-3xl mx-auto p-5 h-[50rem] scrollbar-hide overflow-y-scroll">
           <h1 className="text-3xl mt-10 mb-3">{article.title}</h1>
