@@ -37,7 +37,7 @@ function Article({ article }: postProps) {
         <meta property="og:title" content={article.title} />
         <meta
           property="og:description"
-          content={truncate(article.body[0].children[0].text, 150)}
+          content={truncate(article?.body?.[0]?.children?.[0]?.text, 150)}
         />
         <meta property="og:image" content={article.mainImage} />
         <meta property="og:image:width" content="644" />
