@@ -58,7 +58,7 @@ function index({ standings, fixtures, articles }: leagueProps) {
                   </h1>
                 </Link>
                 <p className="text-sm">
-                  {truncate(article.body[0].children[0].text, 150)}
+                  {truncate(article?.body?.[3]?.children?.[0]?.text, 150)}
                 </p>
               </div>
             ))}
