@@ -32,7 +32,7 @@ const Home: NextPage = () => {
         />
         <img
           className="w-40 h-40 md:w-52 md:h-52 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
-          src="https://pbs.twimg.com/profile_images/1531926859604271104/MAUCnkLp_400x400.jpg"
+          src="https://pbs.twimg.com/profile_images/1658979184968978433/wg4qEeZz_400x400.jpg"
           alt="Ligue Un Logo"
           onClick={() => router.push("/ligueUn")}
         />
