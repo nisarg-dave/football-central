@@ -1,19 +1,12 @@
-import { GetServerSideProps } from "next";
 import React from "react";
-import TwitterCard from "../../components/twitter/TwitterCard";
 import Default from "../../layouts/Default";
-import getCityTweets from "../../lib/twitter/manchesterCity/getTweets";
-import { Tweet } from "../../typings";
+import { TwitterTimelineEmbed } from "react-twitter-embed";
 
-interface CityProps {
-  tweets: Tweet[];
-}
-
-function manchesterCity({ tweets }: CityProps) {
+function manchesterCity() {
   return (
     <Default>
       <div className="flex flex-col">
-        <div className="flex ml-2">
+        <div className="flex justify-center">
           <img
             className="w-20 h-20 rounded-full mt-1"
             src="https://pbs.twimg.com/profile_images/1344966114367991813/PVlXJ6Qg_400x400.jpg"
@@ -23,10 +16,12 @@ function manchesterCity({ tweets }: CityProps) {
             City Xtra (Manchester City)
           </h1>
         </div>
-        <div className="grid grid-cols-1 p-6 sm:grid-cols-2 sm:p-6 md:grid-cols-3 md:p-4 gap-4">
-          {tweets.map((tweet) => (
-            <TwitterCard key={tweet.id} tweet={tweet} />
-          ))}
+        <div className="min-w-screen sm:mx-96 p-6">
+          <TwitterTimelineEmbed
+            sourceType="profile"
+            screenName="City_Xtra"
+            options={{ height: 800 }}
+          />
         </div>
       </div>
     </Default>
@@ -34,12 +29,3 @@ function manchesterCity({ tweets }: CityProps) {
 }
 
 export default manchesterCity;
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const tweets = await getCityTweets();
-  return {
-    props: {
-      tweets,
-    },
-  };
-};

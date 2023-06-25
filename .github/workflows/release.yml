@@ -24,9 +24,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: v0.3.3
-          release_name: v0.3.3
+          tag_name: v0.4.0
+          release_name: v0.4.0
           body: |
-            Bugifx: Added optional chaining to the truncated description of the FCBK's Blog articles on the La Liga Home Page.
+            Feat: Updated transfer news pages to use TwitterlineEmbed library instead of making calls to Twitter API due to changes made to the Twitter API free tier access.
           draft: false
           prerelease: false

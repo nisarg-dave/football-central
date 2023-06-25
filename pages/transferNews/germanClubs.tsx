@@ -1,20 +1,12 @@
-import { GetServerSideProps } from "next";
 import React from "react";
-import TwitterCard from "../../components/twitter/TwitterCard";
 import Default from "../../layouts/Default";
-import getChristianFalkTweets from "../../lib/twitter/germanClubs/getTweets";
+import { TwitterTimelineEmbed } from "react-twitter-embed";
 
-import { Tweet } from "../../typings";
-
-interface GermanClubsProps {
-  tweets: Tweet[];
-}
-
-function germanClubs({ tweets }: GermanClubsProps) {
+function germanClubs() {
   return (
     <Default>
       <div className="flex flex-col">
-        <div className="flex ml-2">
+        <div className="flex justify-center">
           <img
             className="w-20 h-20 rounded-full mt-1"
             src="https://pbs.twimg.com/profile_images/1367085330327830528/dTCWjSc0_400x400.jpg"
@@ -24,10 +16,12 @@ function germanClubs({ tweets }: GermanClubsProps) {
             Christian Falk (German Clubs)
           </h1>
         </div>
-        <div className="grid grid-cols-1 p-6 sm:grid-cols-2 sm:p-6 md:grid-cols-3 md:p-4 gap-4">
-          {tweets.map((tweet) => (
-            <TwitterCard key={tweet.id} tweet={tweet} />
-          ))}
+        <div className="min-w-screen sm:mx-96 p-6">
+          <TwitterTimelineEmbed
+            sourceType="profile"
+            screenName="cfbayern"
+            options={{ height: 800 }}
+          />
         </div>
       </div>
     </Default>
@@ -35,12 +29,3 @@ function germanClubs({ tweets }: GermanClubsProps) {
 }
 
 export default germanClubs;
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const tweets = await getChristianFalkTweets();
-  return {
-    props: {
-      tweets,
-    },
-  };
-};
