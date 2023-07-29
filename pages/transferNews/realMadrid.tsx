@@ -9,7 +9,7 @@ function realMadrid() {
         <div className="flex justify-center">
           <img
             className="w-20 h-20 rounded-full mt-1"
-            src="https://pbs.twimg.com/profile_images/1543662848332677121/QHa-iUwo_400x400.jpg"
+            src="https://pbs.twimg.com/profile_images/1678102817838432257/bhq-CjuJ_400x400.jpg"
             alt="Madrid Xtra Logo"
           />
           <h1 className="ml-4 text-2xl font-bold mt-7">
