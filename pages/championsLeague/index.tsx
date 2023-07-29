@@ -31,7 +31,7 @@ function index({ fixtures }: leagueProps) {
           <div className="p-2 col-span-1">
             <TwitterTimelineEmbed
               sourceType="profile"
-              screenName="EASPORTSFIFA"
+              screenName="EASPORTSFC"
               options={{ height: 670 }}
             />
           </div>
