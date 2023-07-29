@@ -18,7 +18,7 @@ function standings({ standings }: standingsProps) {
           <div className="flex ml-2">
             <img
               className="w-20 h-20 rounded-full mt-1"
-              src="https://pbs.twimg.com/profile_images/1531926859604271104/MAUCnkLp_400x400.jpg"
+              src="https://pbs.twimg.com/profile_images/1658979184968978433/wg4qEeZz_400x400.jpg"
               alt="Ligue Un Logo"
             />
             <h1 className="ml-4 text-2xl font-bold mt-7">League Table</h1>
