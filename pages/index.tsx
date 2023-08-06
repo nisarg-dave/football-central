@@ -56,7 +56,7 @@ const Home: NextPage = () => {
         />
         <img
           className="w-40 h-40 md:w-52 md:h-52 rounded-full mx-auto cursor-pointer hover:-translate-y-1 hover:scale-105"
-          src="https://about.twitter.com/content/dam/about-twitter/en/brand-toolkit/brand-download-img-1.jpg.twimg.1920.jpg"
+          src="https://pbs.twimg.com/profile_images/1683325380441128960/yRsRRjGO_400x400.jpg"
           alt="Transfer Logo"
           onClick={() => router.push("/transferNews")}
         />
