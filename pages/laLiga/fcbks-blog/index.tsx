@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import Default from "../../../layouts/Default";
 import { articles, Tab } from "../../../typings";
 import Tabs from "../../../components/widgets/Tabs";
@@ -13,6 +13,7 @@ interface fCBkHomeProps {
 
 function Index({ articles }: fCBkHomeProps) {
   const [displayedArticles, setDisplayedArticles] = useState<articles[]>([]);
+  const [currentPage, setCurrentPage] = useState(0);
   const tabs = useTabs();
   const setActiveTab = useSetActiveTab();
 
@@ -35,11 +36,21 @@ function Index({ articles }: fCBkHomeProps) {
       const filteredArticles = articles.filter(
         (article) => article.categoryName === selectedTab.name
       );
+      setCurrentPage(0);
       setDisplayedArticles(filteredArticles);
     } else {
+      setCurrentPage(0);
       setDisplayedArticles(articles);
     }
   };
+
+  const numberOfPages = useMemo(() => {
+    const pages: number[] = [];
+    for (let i = 0; i < Math.ceil(displayedArticles.length / 12); i++) {
+      pages.push(i);
+    }
+    return pages;
+  }, [displayedArticles]);
 
   return (
     <Default>
@@ -65,6 +76,73 @@ function Index({ articles }: fCBkHomeProps) {
             </Link>
           ))}
         </div>
+        {numberOfPages.length > 1 ? (
+          <div className="py-2 px-4 flex justify-end w-full">
+            <nav>
+              <ul className="flex">
+                <li>
+                  {currentPage !== 0 ? (
+                    <a
+                      className="relative block rounded-full bg-transparent px-3 py-1.5 text-sm text-black transition-all duration-300 hover:bg-black hover:text-yellow-300"
+                      href="#!"
+                      onClick={() => {
+                        const previousPage = currentPage - 1;
+                        if (previousPage >= 0) {
+                          setCurrentPage(previousPage);
+                        }
+                      }}
+                    >
+                      Previous
+                    </a>
+                  ) : (
+                    <></>
+                  )}
+                </li>
+                {numberOfPages.map((page, index) => (
+                  <li key={index}>
+                    {index === currentPage ? (
+                      <a
+                        className="relative block rounded-full px-3 py-1.5 text-sm transition-all duration-300 bg-black text-yellow-300"
+                        href="#!"
+                        onClick={() => setCurrentPage(index)}
+                      >
+                        {index}
+                      </a>
+                    ) : (
+                      <a
+                        className="relative block rounded-full bg-transparent px-3 py-1.5 text-sm text-black transition-all duration-300 hover:bg-black hover:text-yellow-300"
+                        href="#!"
+                        onClick={() => setCurrentPage(index)}
+                      >
+                        {index}
+                      </a>
+                    )}
+                  </li>
+                ))}
+                <li>
+                  {currentPage !== numberOfPages.length - 1 ? (
+                    <a
+                      className="relative block rounded-full bg-transparent px-3 py-1.5 text-sm text-black transition-all duration-300 hover:bg-black hover:text-yellow-300"
+                      href="#!"
+                      onClick={() => {
+                        const nextPage = currentPage + 1;
+                        if (nextPage < numberOfPages.length) {
+                          setCurrentPage(nextPage);
+                        }
+                      }}
+                    >
+                      Next
+                    </a>
+                  ) : (
+                    <></>
+                  )}
+                </li>
+              </ul>
+            </nav>
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     </Default>
   );
