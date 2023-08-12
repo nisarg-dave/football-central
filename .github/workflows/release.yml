@@ -24,9 +24,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: v0.5.0
-          release_name: v0.5.0
+          tag_name: v0.6.0
+          release_name: v0.6.0
           body: |
-            Feat: Added pagination to FCBK's Blog. Each page now consists of a maximum of 12 articles.
+            Feat: Updated endpoints for 2023/24 season. Removed post match reviews for FCBK's blog from the previous season.
           draft: false
           prerelease: false
