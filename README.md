@@ -9,7 +9,7 @@ A website that displays fixtures, standings and results for the following league
 - SerieA
 - Champions League
 
-Furthermore, it displays tweets about transfers and other news, using the Twitter V2 API, from the following accounts:
+Furthermore, it displays tweets about transfers and other news, using the React Twitter Embed library, from the following accounts:
 
 - Fabrizio Romano
 - David Ornstein
@@ -28,5 +28,6 @@ https://fcbks-blog.sanity.studio/desk
 
 - NextJS
 - Typescript
-- Sanity
+- Sanity CMS
+- Zustand state management library
 - Tailwind CSS
